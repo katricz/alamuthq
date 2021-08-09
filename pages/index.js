@@ -1,15 +1,17 @@
-import Menu from "../components/Menu";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Cabecalho from "../components/Cabecalho";
-import Head from "next/head";
+import Menu from '../components/Menu';
+import Cabecalho from '../components/Cabecalho';
+import Container from '@material-ui/core';
 
 function HomePage() {
     return (
         <div>
             <Cabecalho />
             <Menu />
-            Welcome to AlamutHQ
-            <a href='/crypt'> Crypt </a>
+            <Container className='text-center'>
+                <h1 className='display-4'> Welcome to Alamut Headquarters</h1>
+                <p className='Lead'> Deckbuilding and Inventory</p>
+            </Container>
+
         </div>
     )
 }

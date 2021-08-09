@@ -17,5 +17,8 @@ Install react and nextjs
 [ https://nextjs.org/docs ]
 ### npm install next react react-dom
 
+Install Material-UI
+### npm install @material-ui/core
+
 
 
