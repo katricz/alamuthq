@@ -17,8 +17,8 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
-import HighQualityIcon from '@material-ui/icons/HighQuality';
-import StorageIcon from '@material-ui/icons/Storage';
+import HomeIcon from '@material-ui/icons/Home';
+import StyleIcon from '@material-ui/icons/Style';
 
 const drawerWidth = 240;
 
@@ -143,29 +143,52 @@ export default function Menu() {
         </div>
         <Divider />
         <List>
-          {['AlamutHQ', 'Decks', 'Crypt', 'Library'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <HighQualityIcon /> : <StorageIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+          <ListItem button>
+            <ListItemIcon> <HomeIcon /> </ListItemIcon>
+            <ListItemText primary='AlamutHQ' />
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon> <StyleIcon /> </ListItemIcon>
+            <ListItemText primary='Decks' />
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon> <MailIcon /> </ListItemIcon>
+            <ListItemText primary='Crypt' />
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon> <InboxIcon /> </ListItemIcon>
+            <ListItemText primary='Library' />
+          </ListItem>
         </List>
         <Divider />
         <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+          <ListItem button>
+            <ListItemIcon> <HomeIcon /> </ListItemIcon>
+            <ListItemText primary='Deckbuilder' />
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon> <StyleIcon /> </ListItemIcon>
+            <ListItemText primary='Amaranth' />
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon> <MailIcon /> </ListItemIcon>
+            <ListItemText primary='VEKN' />
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon> <InboxIcon /> </ListItemIcon>
+            <ListItemText primary='Black Chantry' />
+          </ListItem>
         </List>
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <Typography paragraph>
-          <h1 className='display-4'> Welcome to Alamut Headquarters</h1>
-          <p className='Lead'> Deckbuilding and Inventory</p>
+        <Typography paragraph variant='h3'>
+          Welcome to Alamut Headquarters
         </Typography>
+        <Typography paragraph variant='h4'>
+          Deckbuilding and Inventory
+        </Typography>
+
         <Typography paragraph>
           O que é VTES, O que é deck builder, etc
         </Typography>
