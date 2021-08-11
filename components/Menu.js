@@ -17,6 +17,8 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import HighQualityIcon from '@material-ui/icons/HighQuality';
+import StorageIcon from '@material-ui/icons/Storage';
 
 const drawerWidth = 240;
 
@@ -141,9 +143,9 @@ export default function Menu() {
         </div>
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          {['AlamutHQ', 'Decks', 'Crypt', 'Library'].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+              <ListItemIcon>{index % 2 === 0 ? <HighQualityIcon /> : <StorageIcon />}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
