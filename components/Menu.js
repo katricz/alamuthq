@@ -89,6 +89,7 @@ export default function Menu() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
+
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -96,6 +97,11 @@ export default function Menu() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  const itensMenu = () => {
+    title = 'EBA!'
+  }
+
 
   return (
     <div className={classes.root}>
@@ -143,6 +149,16 @@ export default function Menu() {
         </div>
         <Divider />
         <List>
+          {itensMenu.map(({id}) => 
+          
+                  <ListItem button onClick={() => onSelect(id)}>
+                    <ListItemText primary={title} key={id} />
+                  </ListItem>
+          
+          )}
+
+
+          {/*
           <ListItem button>
             <ListItemIcon> <HomeIcon /> </ListItemIcon>
             <ListItemText primary='AlamutHQ' />
@@ -159,6 +175,7 @@ export default function Menu() {
             <ListItemIcon> <InboxIcon /> </ListItemIcon>
             <ListItemText primary='Library' />
           </ListItem>
+          */}
         </List>
         <Divider />
         <List>
