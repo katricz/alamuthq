@@ -43,6 +43,9 @@ const theme = createTheme({
       '"Segoe UI Symbol"',
     ].join(','),
   },
+  ListItemIcon: {
+    width: '19px'
+  }
 });
 
 export default theme;

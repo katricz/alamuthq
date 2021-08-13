@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+import { Link } from '@material-ui/core';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
@@ -19,12 +20,22 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import HomeIcon from '@material-ui/icons/Home';
 import StyleIcon from '@material-ui/icons/Style';
+import Botoes from './Botoes'
+
+// Icones do awesomefont 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+library.add(fas);
 
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
+    "&.MuiListItemIcon-completed": {
+      color: 'red',
+    }
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
@@ -84,132 +95,89 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Menu() {
-  const classes = useStyles();
-  const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
 
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
 
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
-
-  const itensMenu = () => {
-    title = 'EBA!'
-  }
+  export default function Menu() {
+    const classes = useStyles();
+    const theme = useTheme();
+    const [open, setOpen] = React.useState(false);
 
 
-  return (
-    <div className={classes.root}>
-      <CssBaseline />
-      <AppBar
-        position="fixed"
-        className={clsx(classes.appBar, {
-          [classes.appBarShift]: open,
-        })}
-      >
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            className={clsx(classes.menuButton, {
-              [classes.hide]: open,
-            })}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap>
-            AlamutHQ
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Drawer
-        variant="permanent"
-        className={clsx(classes.drawer, {
-          [classes.drawerOpen]: open,
-          [classes.drawerClose]: !open,
-        })}
-        classes={{
-          paper: clsx({
+    const handleDrawerOpen = () => {
+      setOpen(true);
+    };
+
+    const handleDrawerClose = () => {
+      setOpen(false);
+    };
+
+
+    return (
+      <div className={classes.root}>
+        <CssBaseline />
+        <AppBar
+          position="fixed"
+          className={clsx(classes.appBar, {
+            [classes.appBarShift]: open,
+          })}
+        >
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              className={clsx(classes.menuButton, {
+                [classes.hide]: open,
+              })}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" noWrap>
+              AlamutHQ
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        <Drawer
+          variant="permanent"
+          className={clsx(classes.drawer, {
             [classes.drawerOpen]: open,
             [classes.drawerClose]: !open,
-          }),
-        }}
-      >
-        <div className={classes.toolbar}>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-          </IconButton>
-        </div>
-        <Divider />
-        <List>
-          {itensMenu.map(({id}) => 
-          
-                  <ListItem button onClick={() => onSelect(id)}>
-                    <ListItemText primary={title} key={id} />
-                  </ListItem>
-          
-          )}
+          })}
+          classes={{
+            paper: clsx({
+              [classes.drawerOpen]: open,
+              [classes.drawerClose]: !open,
+            }),
+          }}
+        >
+          <div className={classes.toolbar}>
+            <IconButton onClick={handleDrawerClose}>
+              {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+            </IconButton>
+          </div>
+          <Divider />
+          <div className={classes.list}>
+            <List>
+              <Botoes />
+            </List>
+          </div>
+          <Divider />
+        </Drawer>
+        <main className={classes.content}>
+          <div className={classes.toolbar} />
+          <Typography paragraph variant='h3'>
+            Welcome to Alamut Headquarters
+          </Typography>
+          <Typography paragraph variant='h4'>
+            Deckbuilding and Inventory
+          </Typography>
 
-
-          {/*
-          <ListItem button>
-            <ListItemIcon> <HomeIcon /> </ListItemIcon>
-            <ListItemText primary='AlamutHQ' />
-          </ListItem>
-          <ListItem button>
-            <ListItemIcon> <StyleIcon /> </ListItemIcon>
-            <ListItemText primary='Decks' />
-          </ListItem>
-          <ListItem button>
-            <ListItemIcon> <MailIcon /> </ListItemIcon>
-            <ListItemText primary='Crypt' />
-          </ListItem>
-          <ListItem button>
-            <ListItemIcon> <InboxIcon /> </ListItemIcon>
-            <ListItemText primary='Library' />
-          </ListItem>
-          */}
-        </List>
-        <Divider />
-        <List>
-          <ListItem button>
-            <ListItemIcon> <HomeIcon /> </ListItemIcon>
-            <ListItemText primary='Deckbuilder' />
-          </ListItem>
-          <ListItem button>
-            <ListItemIcon> <StyleIcon /> </ListItemIcon>
-            <ListItemText primary='Amaranth' />
-          </ListItem>
-          <ListItem button>
-            <ListItemIcon> <MailIcon /> </ListItemIcon>
-            <ListItemText primary='VEKN' />
-          </ListItem>
-          <ListItem button>
-            <ListItemIcon> <InboxIcon /> </ListItemIcon>
-            <ListItemText primary='Black Chantry' />
-          </ListItem>
-        </List>
-      </Drawer>
-      <main className={classes.content}>
-        <div className={classes.toolbar} />
-        <Typography paragraph variant='h3'>
-          Welcome to Alamut Headquarters
-        </Typography>
-        <Typography paragraph variant='h4'>
-          Deckbuilding and Inventory
-        </Typography>
-
-        <Typography paragraph>
-          O que é VTES, O que é deck builder, etc
-        </Typography>
-      </main>
-    </div>
-  );
-}
+          <Typography paragraph>
+            O que é VTES, O que é deck builder, etc
+          </Typography>
+        </main>
+      </div>
+    );
+  }
