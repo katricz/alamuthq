@@ -45,7 +45,7 @@ export default function ListRouter() {
     const classes = useStyles();
 
     return (
-        <MemoryRouter initialEntries={['/drafts']} initialIndex={0}>
+        <MemoryRouter initialEntries={['/']} initialIndex={0}>
             <div className={classes.root}>
                 <Paper elevation={0}>
                     <List aria-label="main mailbox folders">
