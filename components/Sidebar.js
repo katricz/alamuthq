@@ -18,14 +18,17 @@ library.add(fas);
 
 function Sidebar(props) {
     const { icon, primary, to, newtab } = props;
-
+    const classes = useStyles();
+    
     return (
-        <li>
-            <ListItem button component="a" href={to} target={newtab}>
-                {icon ? <ListItemIcon> {icon} </ListItemIcon> : null}
-                <ListItemText primary={primary} />
-            </ListItem>
-        </li>
+        <div className={classes.root}>
+            <li>
+                <ListItem button component="a" href={to} target={newtab}>
+                    {icon ? <ListItemIcon> {icon} </ListItemIcon> : null}
+                    <ListItemText primary={primary} />
+                </ListItem>
+            </li>
+        </div>
     );
 }
 
@@ -43,8 +46,7 @@ const useStyles = makeStyles({
 
 export default function ListRouter() {
     const classes = useStyles();
-
-    return (
+        return (
         <MemoryRouter initialEntries={['/']} initialIndex={0}>
             <div className={classes.root}>
                 <Paper elevation={0}>

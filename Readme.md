@@ -14,3 +14,6 @@ Install Dependencies
 
 Run project localy with dev mode
 ### npm run dev
+
+Realizar conexao com API
+### npm install --save axios

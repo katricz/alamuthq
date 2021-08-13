@@ -1,51 +1,22 @@
 import { createTheme } from '@material-ui/core/styles';
+import red from '@material-ui/core/colors/red';
 
+// Cria a instância do tema.
 const theme = createTheme({
   palette: {
-    amarelo: {
-      i: '#FFBB00',
-      ii: '#FFDD00',
+    primary: {
+      main: '#556cd6',
     },
-    azul: {
-      i: '#002E79',
-      ii: '#004893',
-      iii: '#005AA5',
-      iv: '#2673B3',
-      v: '#80ADD2',
-      vi: '#E5EEF6',
+    secondary: {
+      main: '#19857b',
     },
-    cinza: {
-      i: '#262626',
-      ii: '#757575',
-      iii: '#F8F8F8',
-      iv: '#CCCCCC',
-      v: '#E5E5E5',
-      vi: '#DDDDDD',
+    error: {
+      main: red.A400,
     },
-    status: {
-      sucesso: '#39AC3E',
-      atencao: '#FFDD00',
-      info: '#2673B3',
-      erro: '#E53935',
+    background: {
+      default: '#fff',
     },
   },
-  typography: {
-    fontFamily: [
-      'geomanistregular',
-      'BlinkMacSystemFont',
-      '"Segoe UI"',
-      'Roboto',
-      '"Helvetica Neue"',
-      'Arial',
-      'sans-serif',
-      '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"',
-    ].join(','),
-  },
-  ListItemIcon: {
-    width: '19px'
-  }
 });
 
 export default theme;
