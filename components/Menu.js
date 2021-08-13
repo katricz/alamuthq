@@ -20,7 +20,7 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import HomeIcon from '@material-ui/icons/Home';
 import StyleIcon from '@material-ui/icons/Style';
-import Botoes from './Botoes'
+import Sidebar from './Sidebar'
 
 // Icones do awesomefont 
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -160,7 +160,7 @@ const useStyles = makeStyles((theme) => ({
           <Divider />
           <div className={classes.list}>
             <List>
-              <Botoes />
+              <Sidebar />
             </List>
           </div>
           <Divider />

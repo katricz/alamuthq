@@ -7,11 +7,7 @@ import Paper from '@material-ui/core/Paper';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
-import InboxIcon from '@material-ui/icons/Inbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
-import Typography from '@material-ui/core/Typography';
-import { Route, MemoryRouter } from 'react-router';
-import { Link as RouterLink } from 'react-router-dom';
+import { MemoryRouter } from 'react-router';
 
 // Icones do awesomefont 
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -20,7 +16,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 library.add(fas);
 
 
-function Botoes(props) {
+function Sidebar(props) {
     const { icon, primary, to } = props;
 
     return (
@@ -33,7 +29,7 @@ function Botoes(props) {
     );
 }
 
-Botoes.propTypes = {
+Sidebar.propTypes = {
     icon: PropTypes.element,
     primary: PropTypes.string.isRequired,
     to: PropTypes.string.isRequired,
@@ -53,17 +49,17 @@ export default function ListRouter() {
             <div className={classes.root}>
                 <Paper elevation={0}>
                     <List aria-label="main mailbox folders">
-                        <Botoes to="/" primary="Home" icon={<FontAwesomeIcon icon='home' width='18px' />} />
-                        <Botoes to="decks" primary="Decks" icon={<FontAwesomeIcon icon='journal-whills' width='18px' />} />
-                        <Botoes to="crypt" primary="Crypt" icon={<FontAwesomeIcon icon='user-ninja' width='18px' />} />
-                        <Botoes to="library" primary="Library" icon={<FontAwesomeIcon icon='jedi' width='18px' />} />
+                        <Sidebar to="/" primary="Home" icon={<FontAwesomeIcon icon='home' width='18px' />} />
+                        <Sidebar to="decks" primary="Decks" icon={<FontAwesomeIcon icon='journal-whills' width='18px' />} />
+                        <Sidebar to="crypt" primary="Crypt" icon={<FontAwesomeIcon icon='user-ninja' width='18px' />} />
+                        <Sidebar to="library" primary="Library" icon={<FontAwesomeIcon icon='jedi' width='18px' />} />
                     </List>
                     <Divider />
                     <List aria-label="main mailbox folders">
-                        <Botoes to="https://vtesdecks.com/" primary="VTES Decks" icon={<FontAwesomeIcon icon='fighter-jet' width='18px' />} />
-                        <Botoes to="https://amaranth.vtes.co.nz/" primary="Amaranth" icon={<FontAwesomeIcon icon='crop' width='18px' />} />
-                        <Botoes to="https://www.vekn.net/" primary="VEKN" icon={<FontAwesomeIcon icon='dungeon' width='18px' />} />
-                        <Botoes to="https://www.blackchantry.com/" primary="Black Chantry" icon={<FontAwesomeIcon icon='bolt' width='18px' />} />
+                        <Sidebar to="https://vtesdecks.com/" primary="VTES Decks" icon={<FontAwesomeIcon icon='fighter-jet' width='18px' />} />
+                        <Sidebar to="https://amaranth.vtes.co.nz/" primary="Amaranth" icon={<FontAwesomeIcon icon='crop' width='18px' />} />
+                        <Sidebar to="https://www.vekn.net/" primary="VEKN" icon={<FontAwesomeIcon icon='dungeon' width='18px' />} />
+                        <Sidebar to="https://www.blackchantry.com/" primary="Black Chantry" icon={<FontAwesomeIcon icon='bolt' width='18px' />} />
                     </List>
                 </Paper>
             </div>
