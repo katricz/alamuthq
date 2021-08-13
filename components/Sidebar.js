@@ -17,11 +17,11 @@ library.add(fas);
 
 
 function Sidebar(props) {
-    const { icon, primary, to } = props;
+    const { icon, primary, to, newtab } = props;
 
     return (
         <li>
-            <ListItem button component="a" href={to}>
+            <ListItem button component="a" href={to} target={newtab}>
                 {icon ? <ListItemIcon> {icon} </ListItemIcon> : null}
                 <ListItemText primary={primary} />
             </ListItem>
@@ -56,10 +56,26 @@ export default function ListRouter() {
                     </List>
                     <Divider />
                     <List aria-label="main mailbox folders">
-                        <Sidebar to="https://vtesdecks.com/" primary="VTES Decks" icon={<FontAwesomeIcon icon='fighter-jet' width='18px' />} />
-                        <Sidebar to="https://amaranth.vtes.co.nz/" primary="Amaranth" icon={<FontAwesomeIcon icon='crop' width='18px' />} />
-                        <Sidebar to="https://www.vekn.net/" primary="VEKN" icon={<FontAwesomeIcon icon='dungeon' width='18px' />} />
-                        <Sidebar to="https://www.blackchantry.com/" primary="Black Chantry" icon={<FontAwesomeIcon icon='bolt' width='18px' />} />
+                        <Sidebar
+                            newtab="_blank"
+                            to="https://vtesdecks.com/"
+                            primary="VTES Decks"
+                            icon={<FontAwesomeIcon icon='fighter-jet' width='18px' />} />
+                        <Sidebar
+                            newtab="_blank"
+                            to="https://amaranth.vtes.co.nz/"
+                            primary="Amaranth"
+                            icon={<FontAwesomeIcon icon='crop' width='18px' />} />
+                        <Sidebar
+                            newtab="_blank"
+                            to="https://www.vekn.net/"
+                            primary="VEKN"
+                            icon={<FontAwesomeIcon icon='dungeon' width='18px' />} />
+                        <Sidebar
+                            newtab="_blank"
+                            to="https://www.blackchantry.com/"
+                            primary="Black Chantry"
+                            icon={<FontAwesomeIcon icon='bolt' width='18px' />} />
                     </List>
                 </Paper>
             </div>
