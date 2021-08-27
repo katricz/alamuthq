@@ -8,6 +8,9 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+           <link rel="icon" href="/favicon.png" />
+          <meta name='description' content='VTES - Vampire: The Eternal Struggle - Deck Builder, Inventory, Proxy tool and Card Search for Library and Crypt' />
+          <meta name='author' content='Katricz' />
           {/* Not exactly required, but this is the PWA primary color */}
           <meta name="theme-color" content={theme.palette.primary.main} />
         </Head>
