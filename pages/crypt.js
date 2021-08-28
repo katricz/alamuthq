@@ -3,7 +3,7 @@
 function Crypt() {
     return (
         <div>
-            Welcome to AlamutHQ <br />
+            Welcome to AlamutHQ 
             <a href='/'> HomePage </a>
         </div>
     )

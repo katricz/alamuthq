@@ -15,7 +15,7 @@ export default function Home() {
         </div>
         <h2>Decks</h2>
         <p>Bleed, Vote, Wall, Rush, Combat, What will be?</p>
-        <a href="#" className="icon-link">
+        <a href="/decks" className="icon-link">
           Go to my Decks
           <svg className="bi" width="1em" height="1em"></svg>
         </a>
@@ -26,7 +26,7 @@ export default function Home() {
         </div>
         <h2>Crypt</h2>
         <p>All vampires are here, the best, the worst and all other between. Almost forgot, Imbuied are here too.</p>
-        <a href="#" className="icon-link">
+        <a href="/crypt" className="icon-link">
           I want to see the evil one
           <svg className="bi" width="1em" height="1em"></svg>
         </a>
@@ -37,7 +37,7 @@ export default function Home() {
         </div>
         <h2>Library</h2>
         <p>Phenomenal Cosmic Powers at your hand</p>
-        <a href="#" className="icon-link">
+        <a href="/library" className="icon-link">
           Search for it
           <svg className="bi" width="1em" height="1em"></svg>
         </a>
@@ -48,7 +48,7 @@ export default function Home() {
         </div>
         <h2>Inventory</h2>
         <p>All my cards, my precious, its all mine, MINE! And what ever I need</p>
-        <a href="#" className="icon-link">
+        <a href="inventory" className="icon-link">
           Catalog it!
           <svg className="bi" width="1em" height="1em"></svg>
         </a>
