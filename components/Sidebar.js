@@ -19,11 +19,11 @@ library.add(fas);
 function Sidebar(props) {
     const { icon, primary, to, newtab } = props;
     const classes = useStyles();
-    
+
     return (
         <div className={classes.root}>
             <li>
-                <ListItem button component="a" href={to} target={newtab}>
+                <ListItem button component={"a"} href={to} target={newtab}>
                     {icon ? <ListItemIcon> {icon} </ListItemIcon> : null}
                     <ListItemText primary={primary} />
                 </ListItem>
@@ -46,18 +46,18 @@ const useStyles = makeStyles({
 
 export default function ListRouter() {
     const classes = useStyles();
-        return (
+    return (
         <MemoryRouter initialEntries={['/']} initialIndex={0}>
             <div className={classes.root}>
                 <Paper elevation={0}>
-                    <List aria-label="main mailbox folders">
+                    <List component="nav">
                         <Sidebar to="/" primary="Home" icon={<FontAwesomeIcon icon='home' width='18px' />} />
                         <Sidebar to="decks" primary="Decks" icon={<FontAwesomeIcon icon='journal-whills' width='18px' />} />
                         <Sidebar to="crypt" primary="Crypt" icon={<FontAwesomeIcon icon='user-ninja' width='18px' />} />
                         <Sidebar to="library" primary="Library" icon={<FontAwesomeIcon icon='jedi' width='18px' />} />
                     </List>
                     <Divider />
-                    <List aria-label="main mailbox folders">
+                    <List component="nav">
                         <Sidebar
                             newtab="_blank"
                             to="https://vtesdecks.com/"

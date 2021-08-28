@@ -14,11 +14,6 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import Sidebar from './Sidebar'
 
-// Icones do awesomefont 
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { fas } from '@fortawesome/free-solid-svg-icons';
-library.add(fas);
 
 const drawerWidth = 240;
 
@@ -90,47 +85,47 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-  export default function Menu() {
-    const classes = useStyles();
-    const theme = useTheme();
-    const [open, setOpen] = React.useState(false);
+export default function Menu() {
+  const classes = useStyles();
+  const theme = useTheme();
+  const [open, setOpen] = React.useState(false);
 
 
-    const handleDrawerOpen = () => {
-      setOpen(true);
-    };
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
 
-    const handleDrawerClose = () => {
-      setOpen(false);
-    };
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
 
 
-    return (
-      <div className={classes.root}>
-        <CssBaseline />
-        <AppBar
-          position="fixed"
-          className={clsx(classes.appBar, {
-            [classes.appBarShift]: open,
-          })}
-        >
-          <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              onClick={handleDrawerOpen}
-              edge="start"
-              className={clsx(classes.menuButton, {
-                [classes.hide]: open,
-              })}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" noWrap>
-              AlamutHQ
-            </Typography>
-          </Toolbar>
-        </AppBar>
+  return (
+    <div className={classes.root}>
+      <CssBaseline />
+      <AppBar
+        position="fixed"
+        className={clsx(classes.appBar, {
+          [classes.appBarShift]: open,
+        })}
+      >
+        <Toolbar>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={handleDrawerOpen}
+            edge="start"
+            className={clsx(classes.menuButton, {
+              [classes.hide]: open,
+            })}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" noWrap>
+            AlamutHQ
+          </Typography>
+        </Toolbar>
+      </AppBar>
         <Drawer
           variant="permanent"
           className={clsx(classes.drawer, {
@@ -157,23 +152,21 @@ const useStyles = makeStyles((theme) => ({
           </div>
           <Divider />
         </Drawer>
-        <main className={classes.content}>
-          <div className={classes.toolbar} />
-          <Typography paragraph variant='h3'>
-            Welcome to Alamut Headquarters
-          </Typography>
-          <Typography paragraph variant='h4'>
-            Deckbuilding and Inventory
-          </Typography>
 
-          <Typography paragraph>
-            O que é VTES, O que é deck builder, etc
-          </Typography>
+      <main className={classes.content}>
+        <div className={classes.toolbar} />
+        <Typography paragraph variant='h3'>
+          Welcome to Alamut Headquarters
+        </Typography>
+        <Typography paragraph variant='h4'>
+          Deckbuilding and Inventory
+        </Typography>
 
+        <Typography paragraph>
+          O que é VTES, O que é deck builder, etc
+        </Typography>
 
-        
-
-        </main>
-      </div>
-    );
-  }
+      </main>
+    </div>
+  );
+}
