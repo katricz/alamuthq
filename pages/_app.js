@@ -9,8 +9,8 @@ export default function MyApp({ Component, pageProps }) {
       <Head>
         <title>AlamutHQ</title>
       </Head>
-      <Component {...pageProps} />
       <Menu />
+      <Component {...pageProps} />
     </>
   )
 }
