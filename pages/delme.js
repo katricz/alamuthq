@@ -1,5 +1,5 @@
 // andtigo index.js
-
+/*
 import React from 'react';
 import axios from 'axios';
 
@@ -26,3 +26,4 @@ Home.getInitialProps = async () => {
 
 
 export default Home
+*/
