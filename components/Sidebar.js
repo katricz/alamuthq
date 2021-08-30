@@ -51,10 +51,11 @@ export default function ListRouter() {
             <div className={classes.root}>
                 <Paper elevation={0}>
                     <List component="nav">
-                        <Sidebar to="/" primary="Home" icon={<FontAwesomeIcon icon='home' width='18px' />} />
-                        <Sidebar to="decks" primary="Decks" icon={<FontAwesomeIcon icon='journal-whills' width='18px' />} />
-                        <Sidebar to="crypt" primary="Crypt" icon={<FontAwesomeIcon icon='user-ninja' width='18px' />} />
-                        <Sidebar to="library" primary="Library" icon={<FontAwesomeIcon icon='jedi' width='18px' />} />
+                        <Sidebar to="/" primary="Home" icon={<FontAwesomeIcon icon='home' />} />
+                        <Sidebar to="decks" primary="Decks" icon={<FontAwesomeIcon icon='journal-whills'/>} />
+                        <Sidebar to="crypt" primary="Crypt" icon={<FontAwesomeIcon icon='user-ninja'/>} />
+                        <Sidebar to="library" primary="Library" icon={<FontAwesomeIcon icon='jedi'/>} />
+                        <Sidebar to="inventory" primary="Inventory" icon={<FontAwesomeIcon icon='warehouse'/>} />
                     </List>
                     <Divider />
                     <List component="nav">
@@ -62,22 +63,22 @@ export default function ListRouter() {
                             newtab="_blank"
                             to="https://vtesdecks.com/"
                             primary="VTES Decks"
-                            icon={<FontAwesomeIcon icon='fighter-jet' width='18px' />} />
+                            icon={<FontAwesomeIcon icon='fighter-jet'/>} />
                         <Sidebar
                             newtab="_blank"
                             to="https://amaranth.vtes.co.nz/"
                             primary="Amaranth"
-                            icon={<FontAwesomeIcon icon='crop' width='18px' />} />
+                            icon={<FontAwesomeIcon icon='crop'/>} />
                         <Sidebar
                             newtab="_blank"
                             to="https://www.vekn.net/"
                             primary="VEKN"
-                            icon={<FontAwesomeIcon icon='dungeon' width='18px' />} />
+                            icon={<FontAwesomeIcon icon='dungeon'/>} />
                         <Sidebar
                             newtab="_blank"
                             to="https://www.blackchantry.com/"
                             primary="Black Chantry"
-                            icon={<FontAwesomeIcon icon='bolt' width='18px' />} />
+                            icon={<FontAwesomeIcon icon='bolt'/>} />
                     </List>
                 </Paper>
             </div>
