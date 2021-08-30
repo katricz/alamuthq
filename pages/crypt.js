@@ -61,15 +61,15 @@ function CryptList() {
     return (
         <div>
             {krcgCrypt.map((cardName) => (
-                <ListItem button key={cardName} component={"a"} to="/" icon={<FontAwesomeIcon icon='home' />} >
+                <ListItem button key={cardName} component={"a"} href="/" >
                     <ListItemAvatar>
-                        <Avatar alt="Remy Sharp" src="https://static.krcg.org/card/aabbtkindred.jpg" />
+                        <Avatar src="https://static.krcg.org/card/aabbtkindred.jpg" />
                     </ListItemAvatar>
                     <ListItemText primary={cardName} />
                 </ListItem>
             ))
             }
-        </div >
+        </div>
     )
 }
 
