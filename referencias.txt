@@ -3,3 +3,17 @@ https://vtesdecks.com/
 https://www.vekn.net/
 https://codex-of-the-damned.org/en/index.html
     
+
+
+List:
+import List from 'react-virtualized/dist/commonjs/List';
+import 'react-virtualized/styles.css';
+
+            <List
+                    overscanRowCount={10}
+                    height={500}
+                    rowCount={krcgCrypt.length}
+                    rowHeight={73}
+                    width={330}
+                    rowRenderer={CryptList}
+                />
