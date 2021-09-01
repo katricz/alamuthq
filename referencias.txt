@@ -17,3 +17,7 @@ import 'react-virtualized/styles.css';
                     width={330}
                     rowRenderer={CryptList}
                 />
+
+Lista com Pesquisa
+https://embed.plnkr.co/plunk/fdDIOO 
+https://www.youtube.com/watch?v=SX_IL7LqSxM

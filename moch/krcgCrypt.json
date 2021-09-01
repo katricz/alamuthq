@@ -1,0 +1,679 @@
+[
+  {
+    "id": 200001,
+    "_name": "Aabbt Kindred",
+    "url": "https://static.krcg.org/card/aabbtkindred.jpg",
+    "types": ["Vampire"],
+    "clans": ["Follower of Set"],
+    "capacity": 4,
+    "disciplines": ["for", "pre", "ser"],
+    "card_text": "Independent: Aabbt Kindred cannot perform directed actions unless /Nefertiti/ is ready. Aabbt Kindred can prevent 1 damage each combat. Non-unique.",
+    "sets": {
+      "Final Nights": [
+        { "release_date": "2001-06-11", "rarity": "Uncommon", "frequency": 2 }
+      ],
+      "Print on Demand": [{ "precon": "DriveThruCards", "copies": 1 }]
+    },
+    "scans": {
+      "Final Nights": "https://static.krcg.org/card/set/final-nights/aabbtkindred.jpg",
+      "Print on Demand": "https://static.krcg.org/card/set/print-on-demand/aabbtkindred.jpg"
+    },
+    "artists": ["Lawrence Snelly"],
+    "group": "2",
+    "name": "Aabbt Kindred"
+  },
+  {
+    "id": 200002,
+    "_name": "Aaron Bathurst",
+    "url": "https://static.krcg.org/card/aaronbathurst.jpg",
+    "types": ["Vampire"],
+    "clans": ["Nosferatu antitribu"],
+    "capacity": 4,
+    "disciplines": ["for", "obf", "pot"],
+    "card_text": "Sabbat.",
+    "sets": {
+      "Third Edition": [{ "release_date": "2006-09-04", "rarity": "Vampire" }]
+    },
+    "scans": {
+      "Third Edition": "https://static.krcg.org/card/set/third-edition/aaronbathurst.jpg"
+    },
+    "artists": ["Rik Martin"],
+    "group": "4",
+    "name": "Aaron Bathurst"
+  },
+  {
+    "id": 200003,
+    "_name": "Aaron Duggan, Cameron's Toady",
+    "url": "https://static.krcg.org/card/aaronduggancameronstoady.jpg",
+    "types": ["Vampire"],
+    "clans": ["Lasombra"],
+    "capacity": 2,
+    "disciplines": ["obt"],
+    "card_text": "Sabbat.",
+    "sets": {
+      "Sabbat": [{ "release_date": "1996-10-28", "rarity": "Vampire" }],
+      "Sabbat War": [{ "release_date": "2000-10-31", "rarity": "Uncommon" }],
+      "Print on Demand": [{ "precon": "DriveThruCards", "copies": 1 }]
+    },
+    "scans": {
+      "Sabbat": "https://static.krcg.org/card/set/sabbat/aaronduggancameronstoady.jpg",
+      "Sabbat War": "https://static.krcg.org/card/set/sabbat-war/aaronduggancameronstoady.jpg",
+      "Print on Demand": "https://static.krcg.org/card/set/print-on-demand/aaronduggancameronstoady.jpg"
+    },
+    "artists": ["Eric LaCombe"],
+    "group": "2",
+    "name": "Aaron Duggan, Cameron's Toady"
+  },
+  {
+    "id": 200004,
+    "_name": "Abd al-Rashid",
+    "url": "https://static.krcg.org/card/abdalrashid.jpg",
+    "types": ["Vampire"],
+    "clans": ["Assamite"],
+    "capacity": 5,
+    "disciplines": ["obf", "CEL", "QUI"],
+    "card_text": "Independent: Blood cursed.",
+    "sets": {
+      "Ancient Hearts": [
+        { "release_date": "1996-05-29", "rarity": "Vampire", "frequency": 3 }
+      ],
+      "Final Nights": [
+        { "release_date": "2001-06-11", "precon": "Assamite", "copies": 1 }
+      ],
+      "Print on Demand": [{ "precon": "DriveThruCards", "copies": 1 }]
+    },
+    "scans": {
+      "Ancient Hearts": "https://static.krcg.org/card/set/ancient-hearts/abdalrashid.jpg",
+      "Final Nights": "https://static.krcg.org/card/set/final-nights/abdalrashid.jpg",
+      "Print on Demand": "https://static.krcg.org/card/set/print-on-demand/abdalrashid.jpg"
+    },
+    "artists": ["Tom Wänerstrand"],
+    "group": "2",
+    "name": "Abd al-Rashid"
+  },
+  {
+    "id": 200005,
+    "_name": "Abdelsobek",
+    "url": "https://static.krcg.org/card/abdelsobek.jpg",
+    "types": ["Vampire"],
+    "clans": ["Follower of Set"],
+    "capacity": 5,
+    "disciplines": ["for", "nec", "obf", "pre", "ser"],
+    "card_text": "Independent: Abdelsobek can unlock a vampire or mummy you control as a +1 stealth action.",
+    "sets": {
+      "Lords of the Night": [
+        { "release_date": "2007-09-26", "rarity": "Uncommon" }
+      ],
+      "Print on Demand": [{ "precon": "DriveThruCards", "copies": 1 }]
+    },
+    "scans": {
+      "Lords of the Night": "https://static.krcg.org/card/set/lords-of-the-night/abdelsobek.jpg",
+      "Print on Demand": "https://static.krcg.org/card/set/print-on-demand/abdelsobek.jpg"
+    },
+    "artists": ["Ken Meyer, Jr."],
+    "group": "5",
+    "name": "Abdelsobek"
+  },
+  {
+    "id": 200006,
+    "_name": "Abebe",
+    "url": "https://static.krcg.org/card/abebe.jpg",
+    "types": ["Vampire"],
+    "clans": ["Samedi"],
+    "capacity": 4,
+    "disciplines": ["nec", "obf", "thn"],
+    "card_text": "Independent.",
+    "sets": {
+      "Legacies of Blood": [
+        { "release_date": "2005-11-14", "rarity": "Uncommon" }
+      ],
+      "Heirs to the Blood": [
+        { "release_date": "2010-02-03", "precon": "Samedi", "copies": 1 }
+      ]
+    },
+    "scans": {
+      "Legacies of Blood": "https://static.krcg.org/card/set/legacies-of-blood/abebe.jpg",
+      "Heirs to the Blood": "https://static.krcg.org/card/set/heirs-to-the-blood/abebe.jpg"
+    },
+    "artists": ["James Stowe"],
+    "group": "4",
+    "name": "Abebe"
+  },
+  {
+    "id": 200007,
+    "_name": "Abid bin Haji, Scholar of Mirrors",
+    "url": "https://static.krcg.org/card/abidbinhajischolarofmirrors.jpg",
+    "types": ["Vampire"],
+    "clans": ["Assamite"],
+    "capacity": 7,
+    "disciplines": ["AUS", "CEL", "OBF", "QUI"],
+    "card_text": "Camarilla: Blood cursed.",
+    "sets": {
+      "The Unaligned": [
+        { "release_date": "2014-10-04", "rarity": "Common" },
+        { "release_date": "2021-07-09", "precon": "Bundle 1", "copies": 2 }
+      ]
+    },
+    "scans": {
+      "The Unaligned": "https://static.krcg.org/card/set/the-unaligned/abidbinhajischolarofmirrors.jpg"
+    },
+    "artists": ["Ginés Quiñonero-Santiago"],
+    "group": "6",
+    "name": "Abid bin Haji, Scholar of Mirrors"
+  },
+  {
+    "id": 200008,
+    "_name": "Abiku",
+    "url": "https://static.krcg.org/card/abiku.jpg",
+    "types": ["Vampire"],
+    "clans": ["Osebo"],
+    "capacity": 6,
+    "disciplines": ["cel", "obt", "AUS", "POT"],
+    "card_text": "Laibon: Abiku gets +1 stealth when hunting.",
+    "sets": {
+      "Ebony Kingdom": [{ "release_date": "2009-05-27", "rarity": "Uncommon" }]
+    },
+    "scans": {
+      "Ebony Kingdom": "https://static.krcg.org/card/set/ebony-kingdom/abiku.jpg"
+    },
+    "artists": ["Mathias Kollros"],
+    "group": "4",
+    "name": "Abiku"
+  },
+  {
+    "id": 200009,
+    "_name": "Abu Nuwasi",
+    "url": "https://static.krcg.org/card/abunuwasi.jpg",
+    "types": ["Vampire"],
+    "clans": ["Ishtarri"],
+    "capacity": 3,
+    "disciplines": ["cel", "for"],
+    "card_text": "Laibon.",
+    "sets": {
+      "Ebony Kingdom": [{ "release_date": "2009-05-27", "rarity": "Uncommon" }]
+    },
+    "scans": {
+      "Ebony Kingdom": "https://static.krcg.org/card/set/ebony-kingdom/abunuwasi.jpg"
+    },
+    "artists": ["Brian LeBlanc"],
+    "group": "4",
+    "name": "Abu Nuwasi"
+  },
+  {
+    "id": 200010,
+    "_name": "Accorri Giovanni",
+    "url": "https://static.krcg.org/card/accorrigiovanni.jpg",
+    "types": ["Vampire"],
+    "clans": ["Giovanni"],
+    "capacity": 6,
+    "disciplines": ["ani", "nec", "DOM", "POT"],
+    "card_text": "Independent.",
+    "sets": {
+      "Lords of the Night": [
+        { "release_date": "2007-09-26", "rarity": "Uncommon" }
+      ],
+      "Print on Demand": [{ "precon": "DriveThruCards", "copies": 1 }]
+    },
+    "scans": {
+      "Lords of the Night": "https://static.krcg.org/card/set/lords-of-the-night/accorrigiovanni.jpg",
+      "Print on Demand": "https://static.krcg.org/card/set/print-on-demand/accorrigiovanni.jpg"
+    },
+    "artists": ["Lawrence Snelly"],
+    "group": "5",
+    "name": "Accorri Giovanni"
+  },
+  {
+    "id": 200011,
+    "_name": "Adana de Sforza",
+    "url": "https://static.krcg.org/card/adanadesforza.jpg",
+    "types": ["Vampire"],
+    "clans": ["Brujah"],
+    "capacity": 11,
+    "disciplines": ["aus", "CEL", "OBF", "POT", "PRE", "PRO"],
+    "card_text": "Camarilla Brujah Inner Circle: Combat cards cost Adana 1 fewer blood. +2 bleed.",
+    "sets": {
+      "Keepers of Tradition": [
+        { "release_date": "2008-11-19", "precon": "Brujah", "copies": 2 },
+        {
+          "release_date": "2018-05-05",
+          "precon": "Reprint Bundle 1",
+          "copies": 2
+        }
+      ]
+    },
+    "scans": {
+      "Keepers of Tradition": "https://static.krcg.org/card/set/keepers-of-tradition/adanadesforza.jpg"
+    },
+    "artists": ["Marian Churchland"],
+    "group": "4",
+    "title": "Inner Circle",
+    "rulings": {
+      "text": [
+        "Card with multiple types (eg. Combat/Action Modifer) are considered of the type they are played as, not both. [PIB 20150924-2]"
+      ],
+      "links": {
+        "[PIB 20150924-2]": "http://www.vekn.net/forum/rules-questions/73293-adana-de-sforza-combo-cards#73307"
+      }
+    },
+    "name": "Adana de Sforza"
+  },
+  {
+    "id": 200012,
+    "_name": "Adelaide Davis",
+    "url": "https://static.krcg.org/card/adelaidedavis.jpg",
+    "types": ["Vampire"],
+    "clans": ["Malkavian"],
+    "capacity": 4,
+    "disciplines": ["aus", "dem", "obf"],
+    "card_text": "Camarilla.",
+    "sets": {
+      "Camarilla Edition": [
+        { "release_date": "2002-08-19", "rarity": "Vampire" }
+      ],
+      "Blood Shadowed Court": [{ "release_date": "2008-04-14" }]
+    },
+    "scans": {
+      "Camarilla Edition": "https://static.krcg.org/card/set/camarilla-edition/adelaidedavis.jpg",
+      "Blood Shadowed Court": "https://static.krcg.org/card/set/blood-shadowed-court/adelaidedavis.jpg"
+    },
+    "artists": ["Ken Meyer, Jr."],
+    "group": "3",
+    "name": "Adelaide Davis"
+  },
+  {
+    "id": 200013,
+    "_name": "Adhiambo",
+    "url": "https://static.krcg.org/card/adhiambo.jpg",
+    "types": ["Vampire"],
+    "clans": ["Tzimisce"],
+    "capacity": 6,
+    "disciplines": ["pot", "ANI", "VIC"],
+    "card_text": "Laibon: Adhiambo gets +1 stealth when equipping with a weapon from your hand and +1 stealth on actions to enter combat with other minions.",
+    "sets": {
+      "Legacies of Blood": [
+        { "release_date": "2005-11-14", "rarity": "Uncommon" }
+      ]
+    },
+    "scans": {
+      "Legacies of Blood": "https://static.krcg.org/card/set/legacies-of-blood/adhiambo.jpg"
+    },
+    "artists": ["Richard Thomas"],
+    "group": "4",
+    "name": "Adhiambo"
+  },
+  {
+    "id": 200014,
+    "_name": "Adonai",
+    "url": "https://static.krcg.org/card/adonai.jpg",
+    "types": ["Vampire"],
+    "clans": ["Salubri antitribu"],
+    "capacity": 7,
+    "disciplines": ["for", "AUS", "VAL"],
+    "card_text": "Sabbat: Adonai can enter combat with any ready Camarilla vampire controlled by another Methuselah as a Ⓓ action. He gets +1 strength when in combat with a Tremere. +1 bleed.",
+    "sets": {
+      "Bloodlines": [
+        { "release_date": "2001-12-03", "rarity": "Uncommon", "frequency": 1 }
+      ]
+    },
+    "scans": {
+      "Bloodlines": "https://static.krcg.org/card/set/bloodlines/adonai.jpg"
+    },
+    "artists": ["Lawrence Snelly"],
+    "group": "2",
+    "name": "Adonai"
+  },
+  {
+    "id": 200015,
+    "_name": "Adri, The Seeker",
+    "url": "https://static.krcg.org/card/adritheseeker.jpg",
+    "types": ["Vampire"],
+    "clans": ["Ravnos"],
+    "capacity": 2,
+    "disciplines": ["for"],
+    "card_text": "Independent: Adri gets +1 intercept against Followers of Set.",
+    "sets": {
+      "The Unaligned": [
+        { "release_date": "2014-10-04", "rarity": "Common" },
+        { "release_date": "2021-07-09", "precon": "Bundle 1", "copies": 2 }
+      ]
+    },
+    "scans": {
+      "The Unaligned": "https://static.krcg.org/card/set/the-unaligned/adritheseeker.jpg"
+    },
+    "artists": ["Riccardo Fabiani"],
+    "group": "6",
+    "name": "Adri, The Seeker"
+  },
+  {
+    "id": 200016,
+    "_name": "Adrianne",
+    "url": "https://static.krcg.org/card/adrianne.jpg",
+    "types": ["Vampire"],
+    "clans": ["Toreador"],
+    "capacity": 6,
+    "disciplines": ["aus", "cel", "pot", "pre"],
+    "card_text": "Camarilla: +1 bleed.",
+    "sets": {
+      "Jyhad": [{ "release_date": "1994-08-16", "rarity": "Vampire" }],
+      "Vampire: The Eternal Struggle": [
+        { "release_date": "1995-09-15", "rarity": "Vampire" }
+      ],
+      "Tenth Anniversary": [
+        { "release_date": "2004-12-13", "precon": "Tin B", "copies": 1 }
+      ]
+    },
+    "scans": {
+      "Jyhad": "https://static.krcg.org/card/set/jyhad/adrianne.jpg",
+      "Vampire: The Eternal Struggle": "https://static.krcg.org/card/set/vampire-the-eternal-struggle/adrianne.jpg",
+      "Tenth Anniversary": "https://static.krcg.org/card/set/tenth-anniversary/adrianne.jpg"
+    },
+    "artists": ["Scott Kirschner"],
+    "group": "1",
+    "name": "Adrianne"
+  },
+  {
+    "id": 200017,
+    "_name": "Aeron",
+    "url": "https://static.krcg.org/card/aeron.jpg",
+    "types": ["Vampire"],
+    "clans": ["Nosferatu antitribu"],
+    "capacity": 9,
+    "disciplines": ["aus", "pro", "ANI", "OBF", "POT"],
+    "card_text": "Sabbat Archbishop of London: Minions opposing Aeron in combat take an additional point of damage during strike resolution if the range is close. Once each combat, Aeron may burn a blood for a press.",
+    "sets": {
+      "Gehenna": [{ "release_date": "2004-05-17", "rarity": "Uncommon" }]
+    },
+    "scans": {
+      "Gehenna": "https://static.krcg.org/card/set/gehenna/aeron.jpg"
+    },
+    "artists": ["Ken Meyer, Jr."],
+    "group": "3",
+    "title": "Archbishop",
+    "rulings": {
+      "text": [
+        "The damage inflicted by his ability is environmental. [RTR 19970630] [LSJ 20070328]",
+        "His ability to get a press can only be used during the press step. [PIB 20150121]",
+        "Damage is inflicted even against a dodge. A \"strike: combat ends\" ends combat before damage is applied, as will a combattant going to torpor during first strike. [RTR 19941109] [TOM 19951216] [PIB 20140324] [ANK 20200422]"
+      ],
+      "links": {
+        "[RTR 19970630]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/KireUeOYY3c/t6ifm9lur1kJ",
+        "[LSJ 20070328]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/3o0R9bLjrQk/9TjsEa_VnhAJ",
+        "[PIB 20150121]": "http://www.vekn.net/forum/rules-questions/68745-presses-outside-of-the-press-step?start=0#68757",
+        "[RTR 19941109]": "https://groups.google.com/d/msg/rec.games.deckmaster/_6CXoKTSLnw/FdG67-3HEAQJ",
+        "[TOM 19951216]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/0G-jqB_fcyE/8jUhfCXRtPUJ",
+        "[PIB 20140324]": "https://www.vekn.net/forum/rules-questions/60259-carrion-crows-first-strike-strikes-not-anaesthetic-touch?start=0#60260",
+        "[ANK 20200422]": "http://www.vekn.net/forum/rules-questions/78582-thoughts-betrayed-interaction-with-different-striking-situation#99680"
+      }
+    },
+    "name": "Aeron"
+  },
+  {
+    "id": 200018,
+    "_name": "Afifa, The Herald",
+    "url": "https://static.krcg.org/card/afifatheherald.jpg",
+    "types": ["Vampire"],
+    "clans": ["Caitiff"],
+    "capacity": 1,
+    "disciplines": ["dom"],
+    "card_text": "Camarilla: When you put a Gehenna card in play, your prey burns 1 pool. If you do not put a Gehenna card in play during your discard phase, a ready vampire you control other than Afifa burns 1 blood, or you burn 1 pool.",
+    "sets": {
+      "Gehenna": [{ "release_date": "2004-05-17", "rarity": "Uncommon" }]
+    },
+    "scans": {
+      "Gehenna": "https://static.krcg.org/card/set/gehenna/afifatheherald.jpg"
+    },
+    "artists": ["Albrecht"],
+    "group": "4",
+    "name": "Afifa, The Herald"
+  },
+  {
+    "id": 200019,
+    "_name": "Agaitas, The Scholar of Antiquities",
+    "url": "https://static.krcg.org/card/agaitasthescholarofantiquities.jpg",
+    "types": ["Vampire"],
+    "clans": ["Harbinger of Skulls"],
+    "capacity": 6,
+    "disciplines": ["for", "AUS", "NEC"],
+    "card_text": "Sabbat: When you play a card, you may draw its replacement from your prey's library instead of your own. Put the card drawn face-up in front of you. It is still considered to be in your hand, to be played or discarded as normal.",
+    "sets": {
+      "Bloodlines": [
+        { "release_date": "2001-12-03", "rarity": "Uncommon", "frequency": 2 }
+      ]
+    },
+    "scans": {
+      "Bloodlines": "https://static.krcg.org/card/set/bloodlines/agaitasthescholarofantiquities.jpg"
+    },
+    "artists": ["Christopher Shy"],
+    "group": "2",
+    "rulings": {
+      "text": [
+        "Additional draws are not subject to his ability (eg. {Infernal Pursuit}, {Aura Reading}, {Learjet}). [LSJ 20011202]",
+        "If Agaitas is burned while cards owned by your prey are still face-up in front of you, you can still play and discard them as normal, but you cannot draw in your prey's library until you control Agaitas anew. [LSJ 20100304]",
+        "Cards from his ability that go into an ash heap, hand, or library always go into their owner's ash heap, hand, or library (eg. using {Heart of Nizchetus}). [RTR 19970425] [LSJ 20060921]",
+        "A weapon available from his ability can be chosen for a {Concealed Weapon}. [LSJ 20060913]"
+      ],
+      "links": {
+        "[LSJ 20011202]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/gyzUP4TCq6M/D-u3Uzdy6SMJ",
+        "[LSJ 20100304]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/UAllw82N9fw/Xl1zGn7t-3cJ",
+        "[RTR 19970425]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/DhP_l2cX3mQ/9ZZZqL8NFSAJ",
+        "[LSJ 20060921]": "https://groups.google.com/g/rec.games.trading-cards.jyhad/c/Lj1GDLBmOWQ/m/-ZbHv_NcqW4J",
+        "[LSJ 20060913]": "https://groups.google.com/g/rec.games.trading-cards.jyhad/c/GpSAQnN6GnY/m/6EqRGDT3u08J"
+      }
+    },
+    "name": "Agaitas, The Scholar of Antiquities"
+  },
+  {
+    "id": 200020,
+    "_name": "Agatha",
+    "url": "https://static.krcg.org/card/agatha.jpg",
+    "types": ["Vampire"],
+    "clans": ["Nosferatu antitribu"],
+    "capacity": 4,
+    "disciplines": ["obf", "POT"],
+    "card_text": "Sabbat.",
+    "sets": {
+      "Sabbat": [{ "release_date": "1996-10-28", "rarity": "Vampire" }],
+      "Sabbat War": [{ "release_date": "2000-10-31", "rarity": "Uncommon" }]
+    },
+    "scans": {
+      "Sabbat": "https://static.krcg.org/card/set/sabbat/agatha.jpg",
+      "Sabbat War": "https://static.krcg.org/card/set/sabbat-war/agatha.jpg"
+    },
+    "artists": ["John Bolton"],
+    "group": "2",
+    "name": "Agatha"
+  },
+  {
+    "id": 200021,
+    "_name": "Ági",
+    "url": "https://static.krcg.org/card/agi.jpg",
+    "types": ["Vampire"],
+    "clans": ["Blood Brother"],
+    "capacity": 6,
+    "disciplines": ["FOR", "SAN", "VIC"],
+    "card_text": "Sabbat: Cards requiring Sanguinus [san] cost Ági 1 fewer blood. Budapest circle. Sterile.",
+    "sets": { "Lost Kindred": [{ "release_date": "2018-06-09", "copies": 2 }] },
+    "scans": {
+      "Lost Kindred": "https://static.krcg.org/card/set/lost-kindred/agi.jpg"
+    },
+    "artists": ["Noora Hirvonen"],
+    "group": "6",
+    "name": "Ági"
+  },
+  {
+    "id": 200022,
+    "_name": "Agrippina",
+    "url": "https://static.krcg.org/card/agrippina.jpg",
+    "types": ["Vampire"],
+    "clans": ["Nosferatu"],
+    "capacity": 4,
+    "disciplines": ["pot", "OBF"],
+    "card_text": "Camarilla.",
+    "sets": {
+      "Jyhad": [{ "release_date": "1994-08-16", "rarity": "Vampire" }],
+      "Vampire: The Eternal Struggle": [
+        { "release_date": "1995-09-15", "rarity": "Vampire" }
+      ],
+      "Tenth Anniversary": [
+        { "release_date": "2004-12-13", "precon": "Tin A", "copies": 1 }
+      ]
+    },
+    "scans": {
+      "Jyhad": "https://static.krcg.org/card/set/jyhad/agrippina.jpg",
+      "Vampire: The Eternal Struggle": "https://static.krcg.org/card/set/vampire-the-eternal-struggle/agrippina.jpg",
+      "Tenth Anniversary": "https://static.krcg.org/card/set/tenth-anniversary/agrippina.jpg"
+    },
+    "artists": ["Brian Snoddy"],
+    "group": "1",
+    "name": "Agrippina"
+  },
+  {
+    "id": 200023,
+    "_name": "Agru Kabera",
+    "url": "https://static.krcg.org/card/agrukabera.jpg",
+    "types": ["Vampire"],
+    "clans": ["Ishtarri"],
+    "capacity": 6,
+    "disciplines": ["cel", "nec", "pre", "FOR"],
+    "card_text": "Laibon: +1 bleed.",
+    "sets": {
+      "Legacies of Blood": [
+        { "release_date": "2005-11-14", "rarity": "Uncommon" }
+      ]
+    },
+    "scans": {
+      "Legacies of Blood": "https://static.krcg.org/card/set/legacies-of-blood/agrukabera.jpg"
+    },
+    "artists": ["Ken Meyer, Jr."],
+    "group": "4",
+    "name": "Agru Kabera"
+  },
+  {
+    "id": 200024,
+    "_name": "Ahmose Chambers",
+    "url": "https://static.krcg.org/card/ahmosechambers.jpg",
+    "types": ["Vampire"],
+    "clans": ["Follower of Set"],
+    "capacity": 3,
+    "disciplines": ["obf", "ser"],
+    "card_text": "Independent.",
+    "sets": {
+      "Lords of the Night": [
+        { "release_date": "2007-09-26", "rarity": "Uncommon" }
+      ],
+      "Print on Demand": [{ "precon": "DriveThruCards", "copies": 1 }]
+    },
+    "scans": {
+      "Lords of the Night": "https://static.krcg.org/card/set/lords-of-the-night/ahmosechambers.jpg",
+      "Print on Demand": "https://static.krcg.org/card/set/print-on-demand/ahmosechambers.jpg"
+    },
+    "artists": ["Leif Jones"],
+    "group": "5",
+    "name": "Ahmose Chambers"
+  },
+  {
+    "_i18n": {
+      "fr": {
+        "url": "https://static.krcg.org/card/fr/aidanlyle.jpg",
+        "card_text": "Camarilla : Aidan reçoit 1 poursuite optionnelle durant chaque combat.",
+        "sets": { "First Blood": "Premier Sang" }
+      },
+      "es": {
+        "name": "Aidan Lyle",
+        "url": "https://static.krcg.org/card/es/aidanlyle.jpg",
+        "card_text": "Camarilla: Aidan obtiene 1 acoso opcional por combate.",
+        "sets": { "First Blood": "Primera Sangre" }
+      }
+    },
+    "id": 200025,
+    "_name": "Aidan Lyle",
+    "url": "https://static.krcg.org/card/aidanlyle.jpg",
+    "types": ["Vampire"],
+    "clans": ["Tremere"],
+    "capacity": 7,
+    "disciplines": ["dom", "AUS", "CHI", "THA"],
+    "card_text": "Camarilla: Aidan gets 1 optional press each combat.",
+    "sets": {
+      "Keepers of Tradition": [
+        { "release_date": "2008-11-19", "rarity": "Vampire" },
+        {
+          "release_date": "2018-05-05",
+          "precon": "Reprint Bundle 2",
+          "copies": 1
+        }
+      ],
+      "First Blood": [
+        { "release_date": "2019-10-01", "precon": "Tremere", "copies": 1 }
+      ]
+    },
+    "scans": {
+      "Keepers of Tradition": "https://static.krcg.org/card/set/keepers-of-tradition/aidanlyle.jpg",
+      "First Blood": "https://static.krcg.org/card/set/first-blood/aidanlyle.jpg"
+    },
+    "artists": ["Leif Jones"],
+    "group": "5",
+    "name": "Aidan Lyle"
+  },
+  {
+    "id": 200026,
+    "_name": "Aimee Laroux",
+    "url": "https://static.krcg.org/card/aimeelaroux.jpg",
+    "types": ["Vampire"],
+    "clans": ["Daughter of Cacophony"],
+    "capacity": 2,
+    "disciplines": ["for", "pre"],
+    "card_text": "Independent: You may use four transfers and burn 1 pool to give Aimee an additional level of Melpominee [mel]. Aimee cannot play reaction cards.",
+    "sets": {
+      "Legacies of Blood": [
+        { "release_date": "2005-11-14", "rarity": "Uncommon" }
+      ]
+    },
+    "scans": {
+      "Legacies of Blood": "https://static.krcg.org/card/set/legacies-of-blood/aimeelaroux.jpg"
+    },
+    "artists": ["Lawrence Snelly"],
+    "group": "4",
+    "name": "Aimee Laroux"
+  },
+  {
+    "id": 200027,
+    "_name": "Aimery Methuin",
+    "url": "https://static.krcg.org/card/aimerymethuin.jpg",
+    "types": ["Vampire"],
+    "clans": ["Ventrue antitribu"],
+    "capacity": 7,
+    "disciplines": ["ani", "pot", "AUS", "DOM", "FOR"],
+    "card_text": "Sabbat: Younger Camarilla vampires get -1 intercept against Aimery.",
+    "sets": {
+      "Danse Macabre": [
+        { "release_date": "2013-10-05", "rarity": "Common" },
+        { "release_date": "2013-10-05", "copies": 2 }
+      ]
+    },
+    "scans": {
+      "Danse Macabre": "https://static.krcg.org/card/set/danse-macabre/aimerymethuin.jpg"
+    },
+    "artists": ["Gábor Németh"],
+    "group": "5",
+    "name": "Aimery Methuin"
+  },
+  {
+    "id": 200028,
+    "_name": "Aisata Swanou",
+    "url": "https://static.krcg.org/card/aisataswanou.jpg",
+    "types": ["Vampire"],
+    "clans": ["Akunanse"],
+    "capacity": 7,
+    "disciplines": ["abo", "ANI", "FOR", "VIC"],
+    "card_text": "Laibon: During your master phase, you may draw a card and move a card from your hand to either your ash heap or the top of your library.",
+    "sets": {
+      "Ebony Kingdom": [{ "release_date": "2009-05-27", "rarity": "Uncommon" }]
+    },
+    "scans": {
+      "Ebony Kingdom": "https://static.krcg.org/card/set/ebony-kingdom/aisataswanou.jpg"
+    },
+    "artists": ["Leif Jones"],
+    "group": "5",
+    "name": "Aisata Swanou"
+  }
+]
