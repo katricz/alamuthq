@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { FixedSizeList } from 'react-window';
 
@@ -9,21 +8,24 @@ import Avatar from '@material-ui/core/Avatar';
 import { Container } from '@material-ui/core';
 //import krcgCrypt from '../moch/krcgCrypt';
 import TextField from '@material-ui/core/TextField';
-import BootstrapTable from 'react-bootstrap-table-next';
-import filterFactory, { textFilter } from 'react-bootstrap-table2-filter';
+
+import ListItemSecondaryAction from '@mui/core'
 
 const krcgCrypt = require('../moch/krcgCrypt.json')
 export default function Crypt() {
     return (
         <div className="table-responsive">
             <Container>
-                <TextField id="standard-search" label="Find the Evil One" type="search"  filter={textFilter()}/>
+                <TextField id="standard-search" label="Find the Evil One" type="search" />
                 <FixedSizeList
-                    height={400} itemSize={46} itemCount={10}
+                    height={380}
+                    itemCount={krcgCrypt.length}
+                    itemSize={35}
+                    width="100%"
                     children={CryptList}
                 >
                 </FixedSizeList>
-            
+
             </Container>
         </div>
     );
@@ -33,11 +35,21 @@ function CryptList() {
     return (
         <div>
             {krcgCrypt.map((cryptCard) => (
-                <ListItem button key={cryptCard.id} component={"a"} href={cryptCard.url} >
+                <ListItem
+                    button
+                    key={cryptCard.id}
+                    component={"a"}
+                >
                     <ListItemAvatar>
                         <Avatar src={cryptCard.url} />
                     </ListItemAvatar>
-                    <ListItemText primary={cryptCard._name} />
+
+                    <ListItemText
+                        primary={cryptCard._name }
+                        secondary={cryptCard.disciplines.map((disciplineIcon) => (
+                            <i>{disciplineIcon[0]}</i>
+                        ))} 
+                    />
                 </ListItem>
             ))
             }
@@ -46,4 +58,4 @@ function CryptList() {
 }
 
 
-
+//href={cryptCard.url} 
