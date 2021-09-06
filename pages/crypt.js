@@ -9,6 +9,7 @@ import Avatar from '@material-ui/core/Avatar';
 import { Container } from '@material-ui/core';
 //import krcgCrypt from '../moch/krcgCrypt';
 import TextField from '@material-ui/core/TextField';
+import Image from 'next/image'
 
 import InfiniteScroll from 'react-infinite-scroll-component';
 import ListItemSecondaryAction from '@mui/core'
@@ -44,17 +45,23 @@ function CryptList() {
 
                     <ListItemText
                         primary={cryptCard._name}
-                        secondary={cryptCard.disciplines.map((getIcon) => (
-                            <i>{disciplineIcon(getIcon)}</i>
-                        ))}
-                    />
+                        secondary={cryptCard.disciplines.map((getDiscipline) => (
+                            <i>{disciplineIcon(getDiscipline)}</i>
+                            ))}
+                            />
+                            {cryptCard.clans.map((getClan) => (
+                                    <Image
+                                        alt={getClan}
+                                        width='20px'
+                                        height='20px'
+                                        src={'/icon/' + nameToText(getClan) + '.png'} />
+                            ))}
                 </ListItem>
             ))
             }
         </div>
     )
 }
-
 
 function disciplineIcon(discipline) {
     switch (discipline) {
@@ -99,36 +106,56 @@ function disciplineIcon(discipline) {
         case 'vis': return 'u';
 
         //superior
-        case 'ABO': return 'W';
-        case 'ANI': return 'I';
-        case 'AUS': return 'A';
-        case 'CEL': return 'C';
-        case 'CHI': return 'K';
-        case 'DAI': return 'Y';
-        case 'DEM': return 'E';
-        case 'DOM': return 'D';
-        case 'FOR': return 'F';
-        case 'MEL': return 'M';
-        case 'MYT': return 'X';
-        case 'NEC': return 'N';
-        case 'OBE': return 'B';
-        case 'OBF': return 'O';
-        case 'POT': return 'P';
-        case 'PRE': return 'R';
-        case 'PRO': return 'J';
-        case 'QUI': return 'Q';
-        case 'SAN': return 'G';
-        case 'SER': return 'S';
-        case 'SPI': return 'Z';
-        case 'THA': return 'T';
-        case 'THN': return 'H';
-        case 'VAL': return 'L';
-        case 'VIN': return 'V';
-        case 'VIS': return 'U';
+        case 'ABO': return 'W';
+        case 'ANI': return 'I';
+        case 'AUS': return 'A';
+        case 'CEL': return 'C';
+        case 'CHI': return 'K';
+        case 'DAI': return 'Y';
+        case 'DEM': return 'E';
+        case 'DOM': return 'D';
+        case 'FOR': return 'F';
+        case 'MEL': return 'M';
+        case 'MYT': return 'X';
+        case 'NEC': return 'N';
+        case 'OBE': return 'B';
+        case 'OBF': return 'O';
+        case 'POT': return 'P';
+        case 'PRE': return 'R';
+        case 'PRO': return 'J';
+        case 'QUI': return 'Q';
+        case 'SAN': return 'G';
+        case 'SER': return 'S';
+        case 'SPI': return 'Z';
+        case 'THA': return 'T';
+        case 'THN': return 'H';
+        case 'VAL': return 'L';
+        case 'VIN': return 'V';
+        case 'VIS': return 'U';
 
         default:
             return '^';
     };
 }
 
-
+function nameToText(text) {
+    if (!text) {
+        return undefined
+    }
+    text = text.toLowerCase()
+    if (text.startsWith("the ")) {
+        text = text.substr(4, text.length) + "the"
+    }
+    text = text
+        .replace(/™/g, "tm")
+        .replace(/\s|,|\.|-|—|'|’|:|\(|\)|"|\/| |!/g, "")
+        .replace(/ö|ó|ø/g, "o")
+        .replace(/é|ë|è/g, "e")
+        .replace(/œ/g, "oe")
+        .replace(/ç/g, "c")
+        .replace(/á|ã|å/g, "a")
+        .replace(/í|î/g, "i")
+        .replace(/ñ/g, "n")
+        .replace(/ü|ú/g, "u")
+    return text
+}

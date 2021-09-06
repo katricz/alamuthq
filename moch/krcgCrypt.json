@@ -23,6 +23,21 @@
     "name": "Aabbt Kindred"
   },
   {
+    "id": 200102,
+    "_name": "Anna \"Dictatrix11\" Suljic",
+    "url": "https://static.krcg.org/card/annadictatrix11suljic.jpg",
+    "types": ["Imbued"],
+    "clans": ["Martyr"],
+    "capacity": 6,
+    "disciplines": ["mar", "red", "viz"],
+    "card_text": "Anna may move 2 blood from the blood bank to any vampire as a +1 stealth action. During your unlock phase, you may look at the top three cards of your library.",
+    "sets": {
+      "Nights of Reckoning": [
+        { "release_date": "2006-04-10", "rarity": "Uncommon" }
+      ]
+    }
+  },
+  {
     "id": 200002,
     "_name": "Aaron Bathurst",
     "url": "https://static.krcg.org/card/aaronbathurst.jpg",
