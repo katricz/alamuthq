@@ -1,4 +1,5 @@
 import React from 'react';
+import NextLink from 'next/link'
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
@@ -23,10 +24,12 @@ function Sidebar(props) {
     return (
         <div className={classes.root}>
             <li>
-                <ListItem button component={"a"} href={to} target={newtab}>
-                    {icon ? <ListItemIcon> {icon} </ListItemIcon> : null}
-                    <ListItemText primary={primary} />
-                </ListItem>
+                <NextLink href={to} passHref>
+                    <ListItem button component={"a"} target={newtab}>
+                        {icon ? <ListItemIcon> {icon} </ListItemIcon> : null}
+                        <ListItemText primary={primary} />
+                    </ListItem>
+                </NextLink>
             </li>
         </div>
     );
@@ -52,10 +55,10 @@ export default function ListRouter() {
                 <Paper elevation={0}>
                     <List component="nav">
                         <Sidebar to="/" primary="Home" icon={<FontAwesomeIcon icon='home' />} />
-                        <Sidebar to="decks" primary="Decks" icon={<FontAwesomeIcon icon='journal-whills'/>} />
-                        <Sidebar to="crypt" primary="Crypt" icon={<FontAwesomeIcon icon='user-ninja'/>} />
-                        <Sidebar to="library" primary="Library" icon={<FontAwesomeIcon icon='jedi'/>} />
-                        <Sidebar to="inventory" primary="Inventory" icon={<FontAwesomeIcon icon='warehouse'/>} />
+                        <Sidebar to="decks" primary="Decks" icon={<FontAwesomeIcon icon='journal-whills' />} />
+                        <Sidebar to="crypt" primary="Crypt" icon={<FontAwesomeIcon icon='user-ninja' />} />
+                        <Sidebar to="library" primary="Library" icon={<FontAwesomeIcon icon='jedi' />} />
+                        <Sidebar to="inventory" primary="Inventory" icon={<FontAwesomeIcon icon='warehouse' />} />
                     </List>
                     <Divider />
                     <List component="nav">
@@ -63,22 +66,22 @@ export default function ListRouter() {
                             newtab="_blank"
                             to="https://vtesdecks.com/"
                             primary="VTES Decks"
-                            icon={<FontAwesomeIcon icon='fighter-jet'/>} />
+                            icon={<FontAwesomeIcon icon='fighter-jet' />} />
                         <Sidebar
                             newtab="_blank"
                             to="https://amaranth.vtes.co.nz/"
                             primary="Amaranth"
-                            icon={<FontAwesomeIcon icon='crop'/>} />
+                            icon={<FontAwesomeIcon icon='crop' />} />
                         <Sidebar
                             newtab="_blank"
                             to="https://www.vekn.net/"
                             primary="VEKN"
-                            icon={<FontAwesomeIcon icon='dungeon'/>} />
+                            icon={<FontAwesomeIcon icon='dungeon' />} />
                         <Sidebar
                             newtab="_blank"
                             to="https://www.blackchantry.com/"
                             primary="Black Chantry"
-                            icon={<FontAwesomeIcon icon='bolt'/>} />
+                            icon={<FontAwesomeIcon icon='bolt' />} />
                     </List>
                 </Paper>
             </div>
