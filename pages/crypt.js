@@ -7,14 +7,14 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import { Container } from '@material-ui/core';
-//import krcgCrypt from '../moch/krcgCrypt';
+import krcgCrypt from '../moch/krcgCrypt.json';
 import TextField from '@material-ui/core/TextField';
 import Image from 'next/image'
 
 import InfiniteScroll from 'react-infinite-scroll-component';
 import ListItemSecondaryAction from '@mui/core'
 
-const krcgCrypt = require('../moch/krcgCrypt.json')
+// const krcgCrypt = require('../moch/krcgCrypt.json')
 
 
 export default function Crypt() {
@@ -47,15 +47,15 @@ function CryptList() {
                         primary={cryptCard._name}
                         secondary={cryptCard.disciplines.map((getDiscipline) => (
                             <i>{disciplineIcon(getDiscipline)}</i>
-                            ))}
-                            />
-                            {cryptCard.clans.map((getClan) => (
-                                    <Image
-                                        alt={getClan}
-                                        width='20px'
-                                        height='20px'
-                                        src={'/icon/' + nameToText(getClan) + '.png'} />
-                            ))}
+                        ))}
+                    />
+                    {cryptCard.clans.map((getClan) => (
+                        <Image
+                            alt={getClan}
+                            width='20px'
+                            height='20px'
+                            src={'/icon/' + nameToText(getClan) + '.png'} />
+                    ))}
                 </ListItem>
             ))
             }
@@ -159,3 +159,45 @@ function nameToText(text) {
         .replace(/ü|ú/g, "u")
     return text
 }
+
+/*  estudar com MongoDB e renderizando no server
+
+import { connectToDatabase } from "../util/mongodb";
+
+export default function Top({ movies }) {
+    return (
+        <div>
+            <h1>Top 1000 Movies of All Time</h1>
+            <p>
+                <small>(According to Metacritic)</small>
+            </p>
+            <ul>
+                {movies.map((movie) => (
+                    <li>
+                        <h2>{movie.title}</h2>
+                        <h3>{movie.metacritic}</h3>
+                        <p>{movie.plot}</p>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
+}
+
+export async function getStaticProps() {
+    const { db } = await connectToDatabase();
+
+    const cryptCards = await db
+        .collection("movies")
+        .find({})
+        .sort({ metacritic: -1 })
+        .limit(cryptCards.length)
+        .toArray();
+
+    return {
+        props: {
+            cryptCards: JSON.parse(JSON.stringify(movies)),
+        },
+    };
+}
+*/
