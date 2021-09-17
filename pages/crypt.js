@@ -7,61 +7,71 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import { Container } from '@material-ui/core';
-import krcgCrypt from '../moch/krcgCrypt.json';
+// import krcgCrypt from '../moch/krcgCrypt.json';
 import TextField from '@material-ui/core/TextField';
 import Image from 'next/image'
 
 import InfiniteScroll from 'react-infinite-scroll-component';
 import ListItemSecondaryAction from '@mui/core'
 
+
+export async function getStaticProps() {
+    const allCards = require('../moch/krcgCryptFull.json')
+
+    return {
+
+        props: {
+            allCards: JSON.parse(JSON.stringify(allCards)),
+        },
+    };
+}
+
 // const krcgCrypt = require('../moch/krcgCrypt.json')
 
 
-export default function Crypt() {
+export default function Crypt({ allCards }) {
+    let cryptCards = allCards
+
     return (
         <div className="table-responsive">
             <Container>
                 <TextField id="standard-search" label="Find the Evil One" type="search" />
                 <List>
-                    {CryptList()}
+                    {cryptCards.map((cryptCard) => (
+                        <ListItem
+                            button
+                            key={cryptCard.id}
+                            component={"a"}
+                        >
+                            <ListItemAvatar>
+                                <Avatar src={cryptCard.url} />
+                            </ListItemAvatar>
+
+                            <ListItemText
+                                primary={cryptCard._name}
+                                secondary={getDisciplines(cryptCard)}
+                            />
+                           
+                        </ListItem>
+                    ))
+                    }
                 </List>
             </Container>
         </div>
     );
 }
 
-function CryptList() {
-    return (
-        <div>
-            {krcgCrypt.map((cryptCard) => (
-                <ListItem
-                    button
-                    key={cryptCard.id}
-                    component={"a"}
-                >
-                    <ListItemAvatar>
-                        <Avatar src={cryptCard.url} />
-                    </ListItemAvatar>
 
-                    <ListItemText
-                        primary={cryptCard._name}
-                        secondary={cryptCard.disciplines.map((getDiscipline) => (
-                            <i>{disciplineIcon(getDiscipline)}</i>
-                        ))}
-                    />
-                    {cryptCard.clans.map((getClan) => (
-                        <Image
-                            alt={getClan}
-                            width='20px'
-                            height='20px'
-                            src={'/icon/' + nameToText(getClan) + '.png'} />
-                    ))}
-                </ListItem>
+function getDisciplines(card) {
+    if (card.disciplines) {
+        return (
+            card.disciplines.map((getDiscipline) => (
+                <i>{disciplineIcon(getDiscipline)}</i>
             ))
-            }
-        </div>
-    )
+        )
+    }
 }
+
 
 function disciplineIcon(discipline) {
     switch (discipline) {
