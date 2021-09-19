@@ -17,9 +17,7 @@ import ListItemSecondaryAction from '@mui/core'
 
 export async function getStaticProps() {
     const allCards = require('../moch/krcgCryptFull.json')
-
     return {
-
         props: {
             allCards: JSON.parse(JSON.stringify(allCards)),
         },
@@ -35,7 +33,12 @@ export default function Crypt({ allCards }) {
     return (
         <div className="table-responsive">
             <Container>
-                <TextField id="standard-search" label="Find the Evil One" type="search" />
+                <TextField 
+                    id="standard-search" 
+                    label="Find the Evil One" 
+                    type="search"
+                    fullWidth
+                />
                 <List>
                     {cryptCards.map((cryptCard) => (
                         <ListItem
@@ -111,8 +114,8 @@ function disciplineIcon(discipline) {
         case 'thn': return 'h';
         case 'val': return 'l';
         case 'ven': return '^';
-        case 'vic': return ')';
-        case 'vin': return 'v';
+        case 'vic': return 'v';
+        case 'vin': return ')';
         case 'vis': return 'u';
 
         //superior
@@ -140,7 +143,7 @@ function disciplineIcon(discipline) {
         case 'THA': return 'T';
         case 'THN': return 'H';
         case 'VAL': return 'L';
-        case 'VIN': return 'V';
+        case 'VIC': return 'V';
         case 'VIS': return 'U';
 
         default:
