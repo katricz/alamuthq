@@ -1,4 +1,4 @@
-
+import { Container } from "@material-ui/core";
 
 function Inventory() {
     return (

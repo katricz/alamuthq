@@ -10,6 +10,7 @@
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
     "@mui/core": "^5.0.0-alpha.45",
+    "ansi-regex": ">=6.0.1",
     "axios": "^0.21.2",
     "bootstrap": "^5.1.0",
     "next": "^11.1.0",
