@@ -6,6 +6,10 @@ https://static.krcg.org/
 https://api.krcg.org/
 
 
+NextJS Static Props
+https://www.youtube.com/watch?v=u1kCtkVR7cE
+
+
 VTES - CryptList
 https://static.krcg.org/data/vtes.json
     
