@@ -2,10 +2,12 @@
 
 function Inventory() {
     return (
-        <div>
-            Welcome to AlamutHQ       
-        <a href='/'> HomePage </a>
-        </div>
+        <Container>
+            <div>
+                Welcome to AlamutHQ <br />
+                <a href='/'> HomePage </a>
+            </div>
+        </Container>
     )
 }
 
