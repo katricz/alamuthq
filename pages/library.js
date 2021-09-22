@@ -2,7 +2,7 @@ import { Container } from "@material-ui/core";
 
 function Library() {
     return (
-        <Container>
+        <Container maxWidth="sm">
             <div>
                 Welcome to AlamutHQ <br />
                 <a href='/'> HomePage </a>

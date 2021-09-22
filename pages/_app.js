@@ -15,3 +15,15 @@ export default function MyApp({ Component, pageProps }) {
     </>
   )
 }
+
+export const getStaticProps = () => {
+  const response = fetch('https://static.krcg.org/data/vtes.json');
+  const data = response.json();
+
+  return {
+    props: {
+      krcg: data,
+    },
+    revalidate: 172800 // 2 dias em segundos
+  }
+}

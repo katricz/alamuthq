@@ -5,12 +5,63 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Avatar from "@material-ui/core/Avatar";
 import { Container } from "@material-ui/core";
-// import krcgCrypt from '../moch/krcgCrypt.json';
 import TextField from "@material-ui/core/TextField";
-import Image from "next/image";
 
 import InfiniteScroll from "react-infinite-scroll-component";
 import ListItemSecondaryAction from "@mui/core";
+// import krcgCrypt from '../moch/krcgCrypt.json';
+// const krcgCrypt = require('../moch/krcgCrypt.json')
+
+export default function Crypt({ allCards }) {
+
+    const cryptCards = allCards;
+
+    const [filteredCards, setFilteredCards] = useState(cryptCards)
+
+    const handleChange = (e) => {
+        const searchValue = e.target.value
+        const filtered = cryptCards.filter(cryptCards => cryptCards._name.includes(searchValue) || cryptCards.card_text.includes(searchValue))
+        setFilteredCards(filtered);
+    }
+    const renderCardList = () => {
+        filteredCards.map((cryptCards) => (
+            <span>{cryptCards._name}</span>
+        ))
+    }
+
+    return (
+        <div className="table-responsive">
+            {renderCardList()}
+            <Container>
+                <TextField
+                    id="standard-search"
+                    label="Find the Evil One"
+                    type="search"
+                    onChange={handleChange}
+                />
+                <List>
+                    {filteredCards.map((cryptCard) => (
+                        <ListItem button key={cryptCard.id} component={"a"} onClick={function () { }}>
+                            <ListItemAvatar>
+                                <Avatar src={cryptCard.url} />
+                            </ListItemAvatar>
+
+                            <ListItemText
+                                primary={cryptCard._name}
+                                secondary={getDisciplines(cryptCard)}
+                            />
+                        </ListItem>
+                    ))}
+                </List>
+            </Container>
+        </div>
+    );
+}
+
+Crypt.propTypes = {};
+
+
+
 
 export async function getStaticProps() {
     const allCards = require("../moch/krcgCryptFull.json");
@@ -21,7 +72,6 @@ export async function getStaticProps() {
     };
 }
 
-// const krcgCrypt = require('../moch/krcgCrypt.json')
 
 function getDisciplines(card) {
     if (card.disciplines) {
@@ -194,48 +244,7 @@ function nameToText(text) {
 
 
 
-export default function Crypt({ allCards }) {
 
-    const cryptCards = allCards;
-    const [cards] = useState([]);
-    const [selectedCards, setSelectedCards] = useState([]);
-
-    function handleSelectCard(name) {
-        if (!name) {
-            return undefined;
-        }
-        const cardName = nameToText(name)
-        console.log(cardName)
-    };
-
-    return (
-        <div className="table-responsive">
-            <Container>
-                <TextField
-                    id="standard-search"
-                    label="Find the Evil One"
-                    type="search"
-                />
-                <List>
-                    {cryptCards.map((cryptCard) => (
-                        <ListItem button key={cryptCard.id} component={"a"} onClick={function () { handleSelectCard(cryptCard._name) }}>
-                            <ListItemAvatar>
-                                <Avatar src={cryptCard.url} />
-                            </ListItemAvatar>
-
-                            <ListItemText
-                                primary={cryptCard._name}
-                                secondary={getDisciplines(cryptCard)}
-                            />
-                        </ListItem>
-                    ))}
-                </List>
-            </Container>
-        </div>
-    );
-}
-
-Crypt.propTypes = {};
 /*  estudar com MongoDB e renderizando no server
 
             import { connectToDatabase } from "../util/mongodb";
