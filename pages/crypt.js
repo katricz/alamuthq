@@ -23,15 +23,9 @@ export default function Crypt({ allCards }) {
         const filtered = cryptCards.filter(cryptCards => cryptCards._name.includes(searchValue) || cryptCards.card_text.includes(searchValue))
         setFilteredCards(filtered);
     }
-    const renderCardList = () => {
-        filteredCards.map((cryptCards) => (
-            <span>{cryptCards._name}</span>
-        ))
-    }
 
     return (
-        <div className="table-responsive">
-            {renderCardList()}
+        < div className="table-responsive" >
             <Container>
                 <TextField
                     id="standard-search"
@@ -41,12 +35,13 @@ export default function Crypt({ allCards }) {
                 />
                 <List>
                     {filteredCards.map((cryptCard) => (
-                        <ListItem button key={cryptCard.id} component={"a"} onClick={function () { }}>
+                        <ListItem button key={cryptCard.id} component={"a"} onClick={function () { console.log('Clicou em ' + cryptCard._name) }}>
                             <ListItemAvatar>
-                                <Avatar src={cryptCard.url} />
+                                {/* <Avatar src={cryptCard.url} /> */}
+                                <Avatar src={'/img/card/'.concat(nameToText(cryptCard._name)).concat(".jpg")} />
                             </ListItemAvatar>
-
                             <ListItemText
+                                key={cryptCard._name}
                                 primary={cryptCard._name}
                                 secondary={getDisciplines(cryptCard)}
                             />
@@ -54,7 +49,7 @@ export default function Crypt({ allCards }) {
                     ))}
                 </List>
             </Container>
-        </div>
+        </div >
     );
 }
 
@@ -80,6 +75,29 @@ function getDisciplines(card) {
         ));
     }
 }
+
+function nameToText(text) {
+    if (!text) {
+        return undefined;
+    }
+    text = text.toLowerCase();
+    if (text.startsWith("the ")) {
+        text = text.substr(4, text.length) + "the";
+    }
+    text = text
+        .replace(/™/g, "tm")
+        .replace(/\s|,|\.|-|—|'|’|:|\(|\)|"|\/| |!/g, "")
+        .replace(/ö|ó|ø/g, "o")
+        .replace(/é|ë|è/g, "e")
+        .replace(/œ/g, "oe")
+        .replace(/ç/g, "c")
+        .replace(/á|ã|å/g, "a")
+        .replace(/í|î/g, "i")
+        .replace(/ñ/g, "n")
+        .replace(/ü|ú/g, "u");
+    return text;
+}
+
 
 function disciplineIcon(discipline) {
     switch (discipline) {
@@ -219,70 +237,3 @@ function disciplineIcon(discipline) {
             return "^";
     }
 }
-
-function nameToText(text) {
-    if (!text) {
-        return undefined;
-    }
-    text = text.toLowerCase();
-    if (text.startsWith("the ")) {
-        text = text.substr(4, text.length) + "the";
-    }
-    text = text
-        .replace(/™/g, "tm")
-        .replace(/\s|,|\.|-|—|'|’|:|\(|\)|"|\/| |!/g, "")
-        .replace(/ö|ó|ø/g, "o")
-        .replace(/é|ë|è/g, "e")
-        .replace(/œ/g, "oe")
-        .replace(/ç/g, "c")
-        .replace(/á|ã|å/g, "a")
-        .replace(/í|î/g, "i")
-        .replace(/ñ/g, "n")
-        .replace(/ü|ú/g, "u");
-    return text;
-}
-
-
-
-
-/*  estudar com MongoDB e renderizando no server
-
-            import { connectToDatabase } from "../util/mongodb";
-
-            export default function Top({ movies }) {
-                return (
-                    <div>
-                    <h1>Top 1000 Movies of All Time</h1>
-                    <p>
-                    <small>(According to Metacritic)</small>
-                    </p>
-                    <ul>
-                    {movies.map((movie) => (
-                        <li>
-                        <h2>{movie.title}</h2>
-                        <h3>{movie.metacritic}</h3>
-                        <p>{movie.plot}</p>
-                        </li>
-                        ))}
-                        </ul>
-                        </div>
-                        );
-                    }
-
-                    export async function getStaticProps() {
-                        const { db } = await connectToDatabase();
-
-                        const cryptCards = await db
-                        .collection("movies")
-                        .find({})
-                        .sort({ metacritic: -1 })
-                        .limit(cryptCards.length)
-                        .toArray();
-
-                        return {
-                            props: {
-                                cryptCards: JSON.parse(JSON.stringify(movies)),
-        },
-    };
-}
-*/
