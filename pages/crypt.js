@@ -20,7 +20,10 @@ export default function Crypt({ allCards }) {
 
     const handleChange = (e) => {
         const searchValue = e.target.value
-        const filtered = cryptCards.filter(cryptCards => cryptCards._name.includes(searchValue) || cryptCards.card_text.includes(searchValue))
+        const filtered = cryptCards.filter(cryptCards =>
+            cryptCards._name.toLowerCase().includes(searchValue) ||
+            cryptCards.card_text.toLowerCase().includes(searchValue)
+        )
         setFilteredCards(filtered);
     }
 
