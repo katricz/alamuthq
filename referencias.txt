@@ -5,6 +5,7 @@ https://codex-of-the-damned.org/en/index.html
 https://static.krcg.org/
 https://api.krcg.org/
 
+Creditos: 3008dmalves@gmail.com - DonHawK
 
 NextJS Static Props
 https://www.youtube.com/watch?v=u1kCtkVR7cE
