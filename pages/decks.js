@@ -1,11 +1,14 @@
 import { Container } from "@material-ui/core";
+import Link from 'next/link'
 
 function Decks() {
     return (
         <Container>
             <div>
                 Welcome to AlamutHQ <br />
-                <a href='/'> HomePage </a>
+                <Link href='/'>
+                    <a> HomePage </a>
+                </Link>
             </div>
         </Container>
     )

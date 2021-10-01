@@ -155,6 +155,8 @@ export default function Menu({ children }) {
 
       <main className={classes.content}>
         <div className={classes.toolbar} />
+
+
         {children}
 
       </main>

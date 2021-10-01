@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 // Icones do awesomefont
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -19,10 +21,12 @@ export default function Home() {
           </div>
           <h2>  <FontAwesomeIcon icon='journal-whills' />  Decks</h2>
           <p>Bleed, Vote, Wall, Rush, Combat, What will be?</p>
-          <a href="/decks" className="icon-link">
-            Go to my Decks
-            <svg className="bi" width="1em" height="1em"></svg>
-          </a>
+          <Link href="/decks">
+            <a className="icon-link">
+              Go to my Decks
+              <svg className="bi" width="1em" height="1em"></svg>
+            </a>
+          </Link>
         </div>
         <div className="feature col">
           <div className="feature-icon bg-primary bg-gradient">
@@ -30,10 +34,12 @@ export default function Home() {
           </div>
           <h2> <FontAwesomeIcon icon='user-ninja' />  Crypt</h2>
           <p>All vampires are here, the best, the worst and all other between. Almost forgot, Imbuied are here too.</p>
-          <a href="/crypt" className="icon-link">
-            I want to see the evil one
-            <svg className="bi" width="1em" height="1em"></svg>
-          </a>
+          <Link href="/crypt" >
+            <a className="icon-link">
+              I want to see the evil one
+              <svg className="bi" width="1em" height="1em"></svg>
+            </a>
+          </Link>
         </div>
         <div className="feature col">
           <div className="feature-icon bg-primary bg-gradient">
@@ -41,10 +47,12 @@ export default function Home() {
           </div>
           <h2><FontAwesomeIcon icon='jedi' />  Library</h2>
           <p>Phenomenal Cosmic Powers at your hand</p>
-          <a href="/library" className="icon-link">
-            Search for it
-            <svg className="bi" width="1em" height="1em"></svg>
-          </a>
+          <Link href="/library">
+            <a className="icon-link">
+              Search for it
+              <svg className="bi" width="1em" height="1em"></svg>
+            </a>
+          </Link>
         </div>
         <div className="feature col">
           <div className="feature-icon bg-primary bg-gradient">
@@ -52,10 +60,12 @@ export default function Home() {
           </div>
           <h2><FontAwesomeIcon icon='warehouse' />  Inventory</h2>
           <p>All my cards, my precious, its all mine, MINE! And what ever I need</p>
-          <a href="/inventory" className="icon-link">
-            Catalog it!
-            <svg className="bi" width="1em" height="1em"></svg>
-          </a>
+          <Link href="/inventory">
+            <a className="icon-link">
+              Catalog it!
+              <svg className="bi" width="1em" height="1em"></svg>
+            </a>
+          </Link>
         </div>
         <div className="feature col">
           <div className="feature-icon bg-primary bg-gradient">
@@ -63,10 +73,12 @@ export default function Home() {
           </div>
           <h2><FontAwesomeIcon icon='question' />  About</h2>
           <p>I know, I need to make this Page...... </p>
-          <a href="/about" className="icon-link">
-            Power overwhelming
-            <svg className="bi" width="1em" height="1em"></svg>
-          </a>
+          <Link href="/about">
+            <a className="icon-link">
+              Power overwhelming
+              <svg className="bi" width="1em" height="1em"></svg>
+            </a>
+          </Link>
         </div>
       </div>
     </div>
