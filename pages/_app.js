@@ -11,8 +11,9 @@ export default function MyApp({ Component, pageProps }) {
       <Head>
         <title>AlamutHQ</title>
       </Head>
-      <Menu />
-      <Component {...pageProps} />
+      <Menu>
+        <Component {...pageProps} />
+      </Menu>
     </>
   )
 }

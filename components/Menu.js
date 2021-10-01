@@ -85,7 +85,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-export default function Menu() {
+export default function Menu({ children }) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -126,45 +126,36 @@ export default function Menu() {
           </Typography>
         </Toolbar>
       </AppBar>
-        <Drawer
-          variant="permanent"
-          className={clsx(classes.drawer, {
+      <Drawer
+        variant="permanent"
+        className={clsx(classes.drawer, {
+          [classes.drawerOpen]: open,
+          [classes.drawerClose]: !open,
+        })}
+        classes={{
+          paper: clsx({
             [classes.drawerOpen]: open,
             [classes.drawerClose]: !open,
-          })}
-          classes={{
-            paper: clsx({
-              [classes.drawerOpen]: open,
-              [classes.drawerClose]: !open,
-            }),
-          }}
-        >
-          <div className={classes.toolbar}>
-            <IconButton onClick={handleDrawerClose}>
-              {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-            </IconButton>
-          </div>
-          <Divider />
-          <div className={classes.list}>
-            <List>
-              <Sidebar />
-            </List>
-          </div>
-          <Divider />
-        </Drawer>
+          }),
+        }}
+      >
+        <div className={classes.toolbar}>
+          <IconButton onClick={handleDrawerClose}>
+            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+          </IconButton>
+        </div>
+        <Divider />
+        <div className={classes.list}>
+          <List>
+            <Sidebar />
+          </List>
+        </div>
+        <Divider />
+      </Drawer>
 
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <Typography paragraph variant='h3'>
-          Welcome to Alamut Headquarters
-        </Typography>
-        <Typography paragraph variant='h4'>
-          Deckbuilding and Inventory
-        </Typography>
-
-        <Typography paragraph>
-          O que é VTES, O que é deck builder, etc
-        </Typography>
+        {children}
 
       </main>
     </div>
