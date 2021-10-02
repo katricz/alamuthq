@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 // Icones do awesomefont
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -13,10 +14,14 @@ export default function Home() {
 
 
     <div className="container px-4 py-5" id="featured-3" >
-      <h2 className="pb-2 border-bottom">Welcome to Alamut Headquarters</h2>
+
+      <h2 className="pb-2 border-bottom">
+        <Image src="/img/AlamutHQ_Logo.png" alt="AlamutHQ Logo" width={150} height={150}
+        />  Welcome to Alamut Headquarters
+      </h2>
       <div className="row g-4 py-5 row-cols-1 row-cols-lg-3">
         <div className="feature col">
-          <div className="feature-icon bg-primary bg-gradient">
+          <div className="feature-icon bg-secondary bg-gradient">
             <svg className="bi" width="1em" height="1em"></svg>
           </div>
           <h2>  <FontAwesomeIcon icon='journal-whills' />  Decks</h2>
@@ -29,7 +34,7 @@ export default function Home() {
           </Link>
         </div>
         <div className="feature col">
-          <div className="feature-icon bg-primary bg-gradient">
+          <div className="feature-icon bg-secondary bg-gradient">
             <svg className="bi" width="1em" height="1em"></svg>
           </div>
           <h2> <FontAwesomeIcon icon='user-ninja' />  Crypt</h2>
@@ -42,7 +47,7 @@ export default function Home() {
           </Link>
         </div>
         <div className="feature col">
-          <div className="feature-icon bg-primary bg-gradient">
+          <div className="feature-icon bg-secondary bg-gradient">
             <svg className="bi" width="1em" height="1em"></svg>
           </div>
           <h2><FontAwesomeIcon icon='jedi' />  Library</h2>
@@ -55,7 +60,7 @@ export default function Home() {
           </Link>
         </div>
         <div className="feature col">
-          <div className="feature-icon bg-primary bg-gradient">
+          <div className="feature-icon bg-secondary bg-gradient">
             <svg className="bi" width="1em" height="1em"></svg>
           </div>
           <h2><FontAwesomeIcon icon='warehouse' />  Inventory</h2>
@@ -68,7 +73,7 @@ export default function Home() {
           </Link>
         </div>
         <div className="feature col">
-          <div className="feature-icon bg-primary bg-gradient">
+          <div className="feature-icon bg-secondary bg-gradient">
             <svg className="bi" width="1em" height="1em"></svg>
           </div>
           <h2><FontAwesomeIcon icon='question' />  About</h2>
