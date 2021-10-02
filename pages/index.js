@@ -16,7 +16,7 @@ export default function Home() {
     <div className="container px-4 py-5" id="featured-3" >
 
       <h2 className="pb-2 border-bottom">
-        <Image src="/img/AlamutHQ_Logo.png" alt="AlamutHQ Logo" width={150} height={150}
+        <Image src="/img/AlamutHQ_Logo.png" alt="AlamutHQ Logo" width={192} height={150}
         />  Welcome to Alamut Headquarters
       </h2>
       <div className="row g-4 py-5 row-cols-1 row-cols-lg-3">
