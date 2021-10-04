@@ -1,4 +1,4 @@
-
+import styles from '../styles/Alamuthq.module.css'
 
 export const getStaticProps = async () => {
     const res = await fetch('https://static.krcg.org/data/vtes.json');
@@ -16,7 +16,7 @@ function Library({ library }) {
             <h1>All Libray Cards</h1>
             {library.map(libraryCard => (
                 <div key={libraryCard.id}>
-                    <a>
+                    <a className={styles.single}>
                         <h6> {libraryCard._name}</h6>
                     </a>
                 </div>
