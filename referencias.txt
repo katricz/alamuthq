@@ -10,6 +10,9 @@ Creditos: 3008dmalves@gmail.com - DonHawK
 NextJS Static Props
 https://www.youtube.com/watch?v=u1kCtkVR7cE
 
+NextJS Full basic
+https://www.youtube.com/watch?v=zueyEdRZQlk
+
 
 VTES - CryptList
 https://static.krcg.org/data/vtes.json
