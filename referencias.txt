@@ -22,6 +22,9 @@ Render with mongodb
 https://www.mongodb.com/developer/how-to/nextjs-with-mongodb/
 
 
+Map vs Object
+https://oieduardorabelo.medium.com/javascript-map-vs-object-quando-e-como-usar-5457677b001b
+
 
 List:
 import List from 'react-virtualized/dist/commonjs/List';
