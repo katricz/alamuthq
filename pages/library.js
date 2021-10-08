@@ -8,18 +8,10 @@ export const getStaticProps = async () => {
     const krcg = await res.json()
     // const krcg = moch
 
-    // const libraryCards = krcg.map(function (card, index) {
-    //     if (!(card.types.includes('Vampire') || card.types.includes('Imbued'))) {
-    //         console.log(card)
-    //         return card
-    //     }
-    // })
-
     const libraryCards = krcg.filter((card) =>
         !(card.types.includes('Vampire') || card.types.includes('Imbued'))
     )
     const library = Object.assign({}, libraryCards)
-    // console.log(library)
 
     return {
         props: {
@@ -31,7 +23,6 @@ export const getStaticProps = async () => {
 
 
 function Library({ libraryCards }) {
-    // console.log(libraryCards)
     return (
 
         <div>
@@ -46,16 +37,6 @@ function Library({ libraryCards }) {
         </div>
     )
 }
-
-function libraryFilter(allCards) {
-    const allLibrary = allCards.map(function (card, index) {
-        if (!(card.types.includes('Vampire') || card.types.includes('Imbued'))) {
-            return card
-        }
-    })
-    return allLibrary
-}
-
 
 
 function nameToText(text) {

@@ -43,7 +43,12 @@ function Card(params) {
         <>
             <div>
                 <Link href='/library'>
-                    <a> Back </a>
+                    <a> Back to Library </a>
+                </Link>
+            </div>
+            <div>
+                <Link href='/crypt'>
+                    <a> Back to Crypt </a>
                 </Link>
             </div>
             <div>

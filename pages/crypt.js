@@ -1,83 +1,78 @@
 import { React, useState } from "react";
-import { List } from "@material-ui/core";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
-import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-import Avatar from "@material-ui/core/Avatar";
-import { Container } from "@material-ui/core";
-import TextField from "@material-ui/core/TextField";
+import Link from 'next/link'
+import { List, ListItem, ListItemText, ListItemAvatar, Avatar, Container, TextField } from "@material-ui/core"
+import styles from '../styles/Alamuthq.module.css'
+import moch from '../moch/krcgCrypt.json'
 
-import InfiniteScroll from "react-infinite-scroll-component";
-import ListItemSecondaryAction from "@mui/core";
-// import krcgCrypt from '../moch/krcgCrypt.json';
-// const krcgCrypt = require('../moch/krcgCrypt.json')
 
-export default function Crypt({ allCards }) {
+export const getStaticProps = async () => {
+    const res = await fetch('https://static.krcg.org/data/vtes.json');
+    const krcg = await res.json()
+    // const krcg = moch
 
-    const cryptCards = allCards;
+    const cryptCards = krcg.filter((card) =>
+        (card.types.includes('Vampire') || card.types.includes('Imbued'))
+    )
+    return {
+        props: {
+            cryptCards
+        }
+    }
+}
+
+
+
+function Crypt({ cryptCards }) {
 
     const [filteredCards, setFilteredCards] = useState(cryptCards)
 
     const handleChange = (e) => {
-        const searchValue = e.target.value
-        const filtered = cryptCards.filter(cryptCards =>
-            cryptCards._name.toLowerCase().includes(searchValue) ||
-            cryptCards.card_text.toLowerCase().includes(searchValue)
-        )
-        setFilteredCards(filtered);
+        if (e.target.value.length < 3) {
+            setFilteredCards(cryptCards)
+        } else {
+            const searchValue = e.target.value
+            const filtered = cryptCards.filter(cryptCards =>
+                cryptCards._name.toLowerCase().includes(searchValue) ||
+                cryptCards.card_text.toLowerCase().includes(searchValue)
+            )
+            setFilteredCards(filtered);
+        }
     }
 
     return (
-        < div className="table-responsive" >
+
+        <div>
             <Container>
+                <h1>All Crypt Cards</h1>
                 <TextField
                     id="standard-search"
-                    label="Find the Evil One"
+                    label="Choose 3+ Letters"
                     type="search"
                     onChange={handleChange}
+
                 />
                 <List>
-                    {filteredCards.map((cryptCard) => (
-                        <ListItem button key={cryptCard.id} component={"a"} onClick={function () { console.log('Clicou em ' + cryptCard._name) }}>
-                            <ListItemAvatar>
-                                {/* <Avatar src={cryptCard.url} /> */}
-                                <Avatar src={'/img/card/'.concat(nameToText(cryptCard._name)).concat(".jpg")} />
-                            </ListItemAvatar>
-                            <ListItemText
-                                key={cryptCard._name}
-                                primary={cryptCard._name}
-                                secondary={getDisciplines(cryptCard)}
-                            />
-                        </ListItem>
+                    {filteredCards.map(cryptCard => (
+                        <Link href={'/card/' + nameToText(cryptCard._name)} key={"Link" + cryptCard.id}>
+                            <ListItem button key={"ListItem" + cryptCard.id} component={"a"}>
+                                <ListItemAvatar>
+                                    <Avatar src={'/img/card/'.concat(nameToText(cryptCard._name)).concat(".jpg")} />
+                                </ListItemAvatar>
+                                <ListItemText
+                                    key={"ListItemText" + cryptCard.id}
+                                    primary={cryptCard._name}
+                                    secondary={getDisciplines(cryptCard)}
+                                />
+                            </ListItem>
+                        </Link>
                     ))}
                 </List>
             </Container>
-        </div >
-    );
+        </div>
+    )
+
 }
 
-Crypt.propTypes = {};
-
-
-
-
-export async function getStaticProps() {
-    const allCards = require("../moch/krcgCryptFull.json");
-    return {
-        props: {
-            allCards: JSON.parse(JSON.stringify(allCards)),
-        },
-    };
-}
-
-
-function getDisciplines(card) {
-    if (card.disciplines) {
-        return card.disciplines.map((getDiscipline) => (
-            <i>{disciplineIcon(getDiscipline)}</i>
-        ));
-    }
-}
 
 function nameToText(text) {
     if (!text) {
@@ -99,6 +94,15 @@ function nameToText(text) {
         .replace(/ñ/g, "n")
         .replace(/ü|ú/g, "u");
     return text;
+}
+
+
+function getDisciplines(card) {
+    if (card.disciplines) {
+        return card.disciplines.map((getDiscipline) => (
+            <i>{disciplineIcon(getDiscipline)}</i>
+        ));
+    }
 }
 
 
@@ -240,3 +244,6 @@ function disciplineIcon(discipline) {
             return "^";
     }
 }
+
+export default Crypt
+
