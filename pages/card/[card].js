@@ -2,6 +2,9 @@ import Link from 'next/link'
 import Image from 'next/image'
 import moch from '../../moch/krcgCrypt.json'
 
+
+
+
 export const getStaticPaths = async () => {
     const res = await fetch('https://static.krcg.org/data/vtes.json');
     const krcg = await res.json();
@@ -49,7 +52,7 @@ function Card(params) {
                     layout="intrinsic"
                     width='358px'
                     height='500px'
-                    quality='100'
+                    quality='10'
                 />
             </div>
         </>

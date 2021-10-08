@@ -5,20 +5,38 @@ import moch from '../moch/krcgCrypt.json'
 
 export const getStaticProps = async () => {
     const res = await fetch('https://static.krcg.org/data/vtes.json');
-    const krcg = await res.json();
+    const krcg = await res.json()
     // const krcg = moch
 
+    // const libraryCards = krcg.map(function (card, index) {
+    //     if (!(card.types.includes('Vampire') || card.types.includes('Imbued'))) {
+    //         console.log(card)
+    //         return card
+    //     }
+    // })
+
+    const libraryCards = krcg.filter((card) =>
+        !(card.types.includes('Vampire') || card.types.includes('Imbued'))
+    )
+    const library = Object.assign({}, libraryCards)
+    // console.log(library)
+
     return {
-        props: { library: krcg }
+        props: {
+            libraryCards
+        }
     }
 }
 
-function Library({ library }) {
+
+
+function Library({ libraryCards }) {
+    // console.log(libraryCards)
     return (
 
         <div>
-            <h1>All Libray Cards</h1>
-            {library.map(libraryCard => (
+            <h1>All Library Cards</h1>
+            {libraryCards.map(libraryCard => (
                 <Link href={'/card/' + nameToText(libraryCard._name)} key={libraryCard.id}>
                     <a className={styles.single}>
                         <h6> {libraryCard._name}</h6>
@@ -28,6 +46,16 @@ function Library({ library }) {
         </div>
     )
 }
+
+function libraryFilter(allCards) {
+    const allLibrary = allCards.map(function (card, index) {
+        if (!(card.types.includes('Vampire') || card.types.includes('Imbued'))) {
+            return card
+        }
+    })
+    return allLibrary
+}
+
 
 
 function nameToText(text) {
