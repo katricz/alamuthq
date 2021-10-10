@@ -1,14 +1,31 @@
 import { React, useState } from "react";
 import Link from 'next/link'
-import { List, ListItem, ListItemText, ListItemAvatar, Avatar, Container, TextField } from "@material-ui/core"
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import {
+    List,
+    ListItem,
+    ListItemText,
+    ListItemAvatar,
+    Avatar,
+    Container,
+    TextField
+} from "@material-ui/core"
+
+// Icones do awesomefont
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+library.add(fas);
+
 import styles from '../styles/Alamuthq.module.css'
 import moch from '../moch/krcgCrypt.json'
 
 
 export const getStaticProps = async () => {
-    const res = await fetch('https://static.krcg.org/data/vtes.json');
-    const krcg = await res.json()
-    // const krcg = moch
+    // const res = await fetch('https://static.krcg.org/data/vtes.json');
+    // const krcg = await res.json()
+    const krcg = moch
 
     const cryptCards = krcg.filter((card) =>
         (card.types.includes('Vampire') || card.types.includes('Imbued'))
@@ -30,13 +47,18 @@ function Crypt({ cryptCards }) {
         if (e.target.value.length < 3) {
             setFilteredCards(cryptCards)
         } else {
-            const searchValue = e.target.value
+            const searchValue = nameToText(e.target.value)
             const filtered = cryptCards.filter(cryptCards =>
                 cryptCards._name.toLowerCase().includes(searchValue) ||
-                cryptCards.card_text.toLowerCase().includes(searchValue)
+                cryptCards.card_text.toLowerCase().includes(searchValue) ||
+                cryptCards.url.toLowerCase().includes(searchValue) // Apenas pra filtrar ç ö etc, tenho q achar solução melhor
             )
             setFilteredCards(filtered);
         }
+    }
+
+    const vtesFilter = (e) => {
+        console.log(e.target.value)
     }
 
     return (
@@ -44,17 +66,28 @@ function Crypt({ cryptCards }) {
         <div>
             <Container>
                 <h1>All Crypt Cards</h1>
-                <TextField
-                    id="standard-search"
-                    label="Choose 3+ Letters"
-                    type="search"
-                    onChange={handleChange}
+                <div>
+                    <TextField
+                        id="standard-search"
+                        label="Choose 3+ Letters"
+                        type="search"
+                        onChange={handleChange}
 
-                />
+                    />
+                    <IconButton
+                        color="inherit"
+                        aria-label="open drawer"
+                        onClick={vtesFilter}
+                        edge="start"
+                    >
+                        <MenuIcon />
+                    </IconButton>
+                </div>
                 <List>
                     {filteredCards.map(cryptCard => (
                         <Link href={'/card/' + nameToText(cryptCard._name)} key={"Link" + cryptCard.id}>
-                            <ListItem button key={"ListItem" + cryptCard.id} component={"a"}>
+                            {/* <ListItem button key={"ListItem" + cryptCard.id} component={"a"}> */}
+                            <ListItem button component={"a"}>
                                 <ListItemAvatar>
                                     <Avatar src={'/img/card/'.concat(nameToText(cryptCard._name)).concat(".jpg")} />
                                 </ListItemAvatar>

@@ -32,8 +32,9 @@ function Library({ libraryCards }) {
         } else {
             const searchValue = e.target.value
             const filtered = libraryCards.filter(libraryCards =>
-                libraryCards._name.toLowerCase().includes(searchValue) ||
-                libraryCards.card_text.toLowerCase().includes(searchValue)
+                libraryCards.name.toLowerCase().includes(searchValue) ||
+                libraryCards.card_text.toLowerCase().includes(searchValue) ||
+                libraryCards.url.toLowerCase().includes(searchValue) // Apenas pra filtrar ç ö etc, tenho q achar solução melhor
             )
             setFilteredCards(filtered);
         }
@@ -53,14 +54,14 @@ function Library({ libraryCards }) {
                 />
                 <List>
                     {filteredCards.map(libraryCard => (
-                        <Link href={'/card/' + nameToText(libraryCard._name)} key={"Link" + libraryCard.id}>
+                        <Link href={'/card/' + nameToText(libraryCard.name)} key={"Link" + libraryCard.id}>
                             <ListItem button key={"ListItem" + libraryCard.id} component={"a"}>
                                 <ListItemAvatar>
-                                    <Avatar src={'/img/card/'.concat(nameToText(libraryCard._name)).concat(".jpg")} />
+                                    <Avatar src={'/img/card/'.concat(nameToText(libraryCard.name)).concat(".jpg")} />
                                 </ListItemAvatar>
                                 <ListItemText
                                     key={"ListItemText" + libraryCard.id}
-                                    primary={libraryCard._name}
+                                    primary={libraryCard.name}
                                     secondary={getDisciplines(libraryCard)}
                                 />
                             </ListItem>

@@ -1,0 +1,42 @@
+@font-face {
+  font-family: "Ankha VTES";
+  src: url("./ankha2.otf") format("opentype");
+}
+@font-face {
+  font-family: "VTES Clans";
+  src: url("./vtes-clans.otf") format("opentype");
+}
+i {
+  font-family: "Ankha VTES";
+  font-style: normal;
+  color: #606060;
+}
+c {
+  font-family: "VTES Clans";
+  font-style: normal;
+  color: #606060;
+}
+body {
+  background: #f2f2f2;
+  color: #333;
+}
+.single {
+  padding: 2px 16px;
+  background: #fff;
+  display: block;
+  margin: 20px 10px;
+  border-left: 8px solid #fff;
+}
+
+.single:hover {
+  border-left: 8px solid #4979ff;
+}
+
+.not-found {
+  text-align: center;
+}
+
+.not-found a {
+  color: blue;
+  text-decoration: underline;
+}
