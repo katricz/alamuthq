@@ -30,8 +30,6 @@ export const getStaticPaths = async () => {
 }
 
 export const getStaticProps = async (context) => {
-    // const res = await fetch('https://static.krcg.org/card/' + context.card);
-    // const krcg = await res.json();
     const krcg = context.params.card
     return {
         props: { card: krcg }

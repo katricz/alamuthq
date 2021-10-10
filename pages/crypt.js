@@ -23,9 +23,9 @@ import moch from '../moch/krcgCrypt.json'
 
 
 export const getStaticProps = async () => {
-    // const res = await fetch('https://static.krcg.org/data/vtes.json');
-    // const krcg = await res.json()
-    const krcg = moch
+    const res = await fetch('https://static.krcg.org/data/vtes.json');
+    const krcg = await res.json()
+    // const krcg = moch
 
     const cryptCards = krcg.filter((card) =>
         (card.types.includes('Vampire') || card.types.includes('Imbued'))
