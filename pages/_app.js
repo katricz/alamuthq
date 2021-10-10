@@ -12,7 +12,7 @@ export default function MyApp({ Component, pageProps }) {
       </Head>
       <Menu>
         <Component {...pageProps} />
-        AlamutHQ Logo made by: DonHawK - 3008dmalves@gmail.com
+        AlamutHQ Logo made by: DonHawK - 3008dmalves@ksgmail.com
       </Menu>
     </>
   )
