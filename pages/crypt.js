@@ -86,7 +86,6 @@ function Crypt({ cryptCards }) {
                 <List>
                     {filteredCards.map(cryptCard => (
                         <Link href={'/card/' + nameToText(cryptCard._name)} key={"Link" + cryptCard.id}>
-                            {/* <ListItem button key={"ListItem" + cryptCard.id} component={"a"}> */}
                             <ListItem button component={"a"}>
                                 <ListItemAvatar>
                                     <Avatar src={'/img/card/'.concat(nameToText(cryptCard._name)).concat(".jpg")} />
@@ -132,8 +131,8 @@ function nameToText(text) {
 
 function getDisciplines(card) {
     if (card.disciplines) {
-        return card.disciplines.map((getDiscipline) => (
-            <i>{disciplineIcon(getDiscipline)}</i>
+        return card.disciplines.map((getDiscipline, index) => (
+            <i key={card.id + index}>{disciplineIcon(getDiscipline)}</i>
         ));
     }
 }

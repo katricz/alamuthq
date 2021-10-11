@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import useRouter from 'next/router'
 import moch from '../../moch/krcgCrypt.json'
 
 
@@ -24,7 +23,7 @@ export const getStaticPaths = async () => {
     })
     return {
         paths,
-        fallback: false
+        fallback: true
     }
 
 }
@@ -38,12 +37,16 @@ export const getStaticProps = async (context) => {
 
 
 function Card(params) {
-    const router = useRouter()
     return (
         <>
             <div>
-                <Link href={router.go(1)}>
-                    <a> Back </a>
+                <Link href='/crypt'>
+                    <a> Back Crypt </a>
+                </Link>
+            </div>
+            <div>
+                <Link href='/library'>
+                    <a> Back Library </a>
                 </Link>
             </div>
             <div>
