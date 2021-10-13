@@ -16,7 +16,7 @@ const allDisciplines = new Map([
     ["for", "f"],
     ["inn", "#"],
     ["jus", "%"],
-    ["mal", "^"],
+    ["mal", "<"],
     ["mar", "&"],
     ["mel", "m"],
     ["myt", "x"],
@@ -32,8 +32,8 @@ const allDisciplines = new Map([
     ["san", "g"],
     ["ser", "s"],
     ["spi", "z"],
-    ["str", "<"],
-    ["tem", "("],
+    ["str", "+"],
+    ["tem", "?"],
     ["tha", "t"],
     ["thn", "h"],
     ["val", "l"],
@@ -51,11 +51,13 @@ const allDisciplines = new Map([
     ["DEM", "E"],
     ["DOM", "D"],
     ["FOR", "F"],
+    ["MAL", ">"],
     ["MEL", "M"],
     ["MYT", "X"],
     ["NEC", "N"],
     ["OBE", "B"],
     ["OBF", "O"],
+    ["OBT", "£"],
     ["POT", "P"],
     ["PRE", "R"],
     ["PRO", "J"],
@@ -63,6 +65,8 @@ const allDisciplines = new Map([
     ["SAN", "G"],
     ["SER", "S"],
     ["SPI", "Z"],
+    ["STR", "="],
+    ["TEM", "!"],
     ["THA", "T"],
     ["THN", "H"],
     ["VAL", "L"],
@@ -85,6 +89,28 @@ function getDiscipline(disciplines) {
 }
 
 function getDisciplineMenu() {
+    const infDisciplines = [
+        "abo", "ani", "aus", "cel", "chi",
+        "dai", "dem", "dom", "for", "mal",
+        "mel", "myt", "nec", "obe", "obf",
+        "obt", "pot", "pre", "pro", "qui",
+        "san", "ser", "spi", "str", "tem",
+        "tha", "thn", "val", "vic", "vis"]
+    const supDisciplines = infDisciplines.map(discipline => discipline.toUpperCase())
+
+    return (
+        <>
+            <div className='disciplineCrypt'>
+                {infDisciplines.map((discipline) => (
+                    <IconButton>{allDisciplines.get(discipline)}</IconButton>
+                ))}
+            </div>
+        </>
+    )
+}
+
+
+function getDisciplineMenu1() {
     const allDisciplines = "abcdefghijklmnopqrstuvwxyz".split("");
 
     return (

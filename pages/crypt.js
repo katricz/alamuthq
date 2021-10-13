@@ -1,7 +1,7 @@
 import { React, useState } from "react";
 import Link from 'next/link'
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import {
     List,
     ListItem,
@@ -79,7 +79,6 @@ function Crypt({ cryptCards }) {
     const vtesFilter = (e) => {
         console.log(e.target.value)
     }
-    const disp = 'b'
     return (
 
         <div>
@@ -99,7 +98,7 @@ function Crypt({ cryptCards }) {
                         onClick={handleOpen}
                         edge="start"
                     >
-                        <MenuIcon />
+                        <FilterAltIcon color="action" />
                     </IconButton>
                     <Modal
                         open={open}
