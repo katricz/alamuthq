@@ -11,6 +11,9 @@ import {
     Container,
     TextField
 } from "@material-ui/core"
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 
 // Icones do awesomefont
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -18,6 +21,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 library.add(fas);
 
+import icon from '../components/disciplines.js'
 import styles from '../styles/Alamuthq.module.css'
 import moch from '../moch/krcgCrypt.json'
 
@@ -57,10 +61,25 @@ function Crypt({ cryptCards }) {
         }
     }
 
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+    const style = {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: 400,
+        bgcolor: 'background.paper',
+        border: '2px solid #000',
+        boxShadow: 24,
+        p: 4,
+    };
+
     const vtesFilter = (e) => {
         console.log(e.target.value)
     }
-
+    const disp = 'b'
     return (
 
         <div>
@@ -77,11 +96,30 @@ function Crypt({ cryptCards }) {
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
-                        onClick={vtesFilter}
+                        onClick={handleOpen}
                         edge="start"
                     >
                         <MenuIcon />
                     </IconButton>
+                    <Modal
+                        open={open}
+                        onClose={handleClose}
+                        aria-labelledby="modal-modal-title"
+                        aria-describedby="modal-modal-description"
+                    >
+                        <Box sx={style}>
+                            <Typography id="modal-modal-title" variant="h6" component="h2">
+                                Choose carefully!
+                            </Typography>
+                            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                                {/* <select id="disciplines" onChange="getData(this.value)">
+                                    <option disabled="disabled" selected="selected">Disciplines</option>
+                                    <option value="0">a</option>
+                                </select> */}
+                                {icon.getDisciplineMenu()}
+                            </Typography>
+                        </Box>
+                    </Modal>
                 </div>
                 <List>
                     {filteredCards.map(cryptCard => (
@@ -93,7 +131,7 @@ function Crypt({ cryptCards }) {
                                 <ListItemText
                                     key={"ListItemText" + cryptCard.id}
                                     primary={cryptCard._name}
-                                    secondary={getDisciplines(cryptCard)}
+                                    secondary={icon.getDiscipline(cryptCard.disciplines)}
                                 />
                             </ListItem>
                         </Link>
@@ -129,153 +167,7 @@ function nameToText(text) {
 }
 
 
-function getDisciplines(card) {
-    if (card.disciplines) {
-        return card.disciplines.map((getDiscipline, index) => (
-            <i key={card.id + index}>{disciplineIcon(getDiscipline)}</i>
-        ));
-    }
-}
 
-
-function disciplineIcon(discipline) {
-    switch (discipline) {
-        //Inferior
-        case "abo":
-            return "w";
-        case "ani":
-            return "i";
-        case "aus":
-            return "a";
-        case "cel":
-            return "c";
-        case "chi":
-            return "k";
-        case "dai":
-            return "y";
-        case "def":
-            return "@";
-        case "dem":
-            return "e";
-        case "dom":
-            return "d";
-        case "flight":
-            return "^";
-        case "for":
-            return "f";
-        case "inn":
-            return "#";
-        case "jus":
-            return "%";
-        case "mal":
-            return "^";
-        case "mar":
-            return "&";
-        case "mel":
-            return "m";
-        case "myt":
-            return "x";
-        case "nec":
-            return "n";
-        case "obe":
-            return "b";
-        case "obf":
-            return "o";
-        case "obt":
-            return "$";
-        case "pot":
-            return "p";
-        case "pre":
-            return "r";
-        case "pro":
-            return "j";
-        case "qui":
-            return "q";
-        case "red":
-            return "*";
-        case "san":
-            return "g";
-        case "ser":
-            return "s";
-        case "spi":
-            return "z";
-        case "str":
-            return "<";
-        case "tem":
-            return "(";
-        case "tha":
-            return "t";
-        case "thn":
-            return "h";
-        case "val":
-            return "l";
-        case "ven":
-            return "^";
-        case "vic":
-            return "v";
-        case "vin":
-            return ")";
-        case "vis":
-            return "u";
-
-        //superior
-        case "ABO":
-            return "W";
-        case "ANI":
-            return "I";
-        case "AUS":
-            return "A";
-        case "CEL":
-            return "C";
-        case "CHI":
-            return "K";
-        case "DAI":
-            return "Y";
-        case "DEM":
-            return "E";
-        case "DOM":
-            return "D";
-        case "FOR":
-            return "F";
-        case "MEL":
-            return "M";
-        case "MYT":
-            return "X";
-        case "NEC":
-            return "N";
-        case "OBE":
-            return "B";
-        case "OBF":
-            return "O";
-        case "POT":
-            return "P";
-        case "PRE":
-            return "R";
-        case "PRO":
-            return "J";
-        case "QUI":
-            return "Q";
-        case "SAN":
-            return "G";
-        case "SER":
-            return "S";
-        case "SPI":
-            return "Z";
-        case "THA":
-            return "T";
-        case "THN":
-            return "H";
-        case "VAL":
-            return "L";
-        case "VIC":
-            return "V";
-        case "VIS":
-            return "U";
-
-        default:
-            return "^";
-    }
-}
 
 export default Crypt
 

@@ -16,6 +16,12 @@ c {
   font-style: normal;
   color: #606060;
 }
+.disciplineCrypt {
+  color: #808080;
+  font-family: "Ankha VTES";
+  font-style: normal;
+}
+
 body {
   background: #f2f2f2;
   color: #333;
