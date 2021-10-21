@@ -55,10 +55,10 @@ export default function ListRouter() {
                 <Paper elevation={0}>
                     <List component="nav">
                         <Sidebar to="/" primary="Home" icon={<FontAwesomeIcon icon='home' />} />
-                        <Sidebar to="decks" primary="Decks" icon={<FontAwesomeIcon icon='journal-whills' />} />
-                        <Sidebar to="crypt" primary="Crypt" icon={<FontAwesomeIcon icon='user-ninja' />} />
-                        <Sidebar to="library" primary="Library" icon={<FontAwesomeIcon icon='jedi' />} />
-                        <Sidebar to="inventory" primary="Inventory" icon={<FontAwesomeIcon icon='warehouse' />} />
+                        <Sidebar to="/decks" primary="Decks" icon={<FontAwesomeIcon icon='journal-whills' />} />
+                        <Sidebar to="/crypt" primary="Crypt" icon={<FontAwesomeIcon icon='user-ninja' />} />
+                        <Sidebar to="/library" primary="Library" icon={<FontAwesomeIcon icon='jedi' />} />
+                        <Sidebar to="/inventory" primary="Inventory" icon={<FontAwesomeIcon icon='warehouse' />} />
                     </List>
                     <Divider />
                     <List component="nav">
