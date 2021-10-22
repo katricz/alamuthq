@@ -28,9 +28,9 @@ import moch from '../moch/krcgCrypt.json'
 
 
 export const getStaticProps = async () => {
-    const res = await fetch('https://static.krcg.org/data/vtes.json');
-    const krcg = await res.json()
-    // const krcg = moch
+    // const res = await fetch('https://static.krcg.org/data/vtes.json');
+    // const krcg = await res.json()
+    const krcg = moch
 
     const cryptCards = krcg.filter((card) =>
         (card.types.includes('Vampire') || card.types.includes('Imbued'))
@@ -63,7 +63,9 @@ function Crypt({ cryptCards }) {
         }
     }
 
-    const allIcons = infDisciplines
+
+
+
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => {
         setOpen(true);
@@ -103,20 +105,8 @@ function Crypt({ cryptCards }) {
                                 <Typography id="modal-modal-title" variant="h6" component="h2">
                                     Choose carefully!
                                 </Typography>
-                                <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                                    <div className='disciplineCrypt' >
-                                        {allIcons.map((discipline) => (
-                                            <IconButton
-                                                key={discipline}
-                                                onClick={() => { changeDiscipline(allIcons, discipline) }}
 
-                                            >
-                                                {allDisciplines.get(discipline)}
-                                            </IconButton>
-                                        ))}
-                                    </div>
-                                </Typography>
-                                <ChildModal />
+                                <Disciplines />
                             </Box>
                         </Modal>
                     </>
@@ -145,7 +135,7 @@ function Crypt({ cryptCards }) {
 }
 
 
-function ChildModal() {
+function Disciplines() {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => {
         setOpen(true);
@@ -153,10 +143,20 @@ function ChildModal() {
     const handleClose = () => {
         setOpen(false);
     };
+    const handleClick = (e) => {
+        if (e.toLowerCase()) {
+            console.log("handleClick e = " + e)
+            const filtered = cryptCards.filter(cryptCards =>
+                cryptCards.disciplines.includes(e)
+            )
+            setFilteredCards(filtered);
+        }
+    }
+    const allIcons = infDisciplines
     return (
         <React.Fragment>
 
-            <Button onClick={handleOpen}>Open Child Modal</Button>
+            <Button onClick={handleOpen}>Disciplines</Button>
             <Modal
                 hideBackdrop
                 open={open}
@@ -164,14 +164,25 @@ function ChildModal() {
                 aria-labelledby="child-modal-title"
                 aria-describedby="child-modal-description"
             >
-                <Box sx={{ ...style, width: 200 }}>
-                    <h2 id="child-modal-title">Text in a child modal</h2>
+                <Box sx={{ ...style, width: 315 }}>
+                    {/* <h2 id="child-modal-title">Text in a child modal</h2>
                     <p id="child-modal-description">
                         Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    </p>
-                    <Button onClick={handleClose}>Close Child Modal</Button>
-                </Box>
+                    </p> */}
+                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                        <div className='disciplineCrypt' >
+                            {allIcons.map((discipline) => (
+                                <IconButton
+                                    key={discipline}
+                                    onClick={() => handleClick(discipline)}
 
+                                >
+                                    {allDisciplines.get(discipline)}
+                                </IconButton>
+                            ))}
+                        </div>
+                    </Typography>
+                </Box>
             </Modal>
         </React.Fragment>
     );
