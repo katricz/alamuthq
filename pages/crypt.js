@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useState } from "react";
 import Link from 'next/link'
+import Image from 'next/image'
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
@@ -28,9 +29,9 @@ import moch from '../moch/krcgCrypt.json'
 
 
 export const getStaticProps = async () => {
-    // const res = await fetch('https://static.krcg.org/data/vtes.json');
-    // const krcg = await res.json()
-    const krcg = moch
+    const res = await fetch('https://static.krcg.org/data/vtes.json');
+    const krcg = await res.json()
+    // const krcg = moch
 
     const cryptCards = krcg.filter((card) =>
         (card.types.includes('Vampire') || card.types.includes('Imbued'))
@@ -117,7 +118,9 @@ function Crypt({ cryptCards }) {
                         <Link href={'/card/' + nameToText(cryptCard._name)} key={"Link" + cryptCard.id}>
                             <ListItem button component={"a"}>
                                 <ListItemAvatar>
-                                    <Avatar src={'/img/card/'.concat(nameToText(cryptCard._name)).concat(".jpg")} />
+                                    <Avatar>
+                                        <Image src={'/img/card/'.concat(nameToText(cryptCard._name)).concat(".jpg")} />
+                                    </Avatar>
                                 </ListItemAvatar>
                                 <ListItemText
                                     key={"ListItemText" + cryptCard.id}

@@ -1,5 +1,6 @@
 import { React, useState } from "react";
 import Link from 'next/link'
+import Image from 'next/image'
 import { List, ListItem, ListItemText, ListItemAvatar, Avatar, Container, TextField } from "@material-ui/core"
 import styles from '../styles/Alamuthq.module.css'
 import moch from '../moch/krcgCrypt.json'
@@ -57,7 +58,9 @@ function Library({ libraryCards }) {
                         <Link href={'/card/' + nameToText(libraryCard.name)} key={"Link" + libraryCard.id}>
                             <ListItem button key={"ListItem" + libraryCard.id} component={"a"}>
                                 <ListItemAvatar>
-                                    <Avatar src={'/img/card/'.concat(nameToText(libraryCard.name)).concat(".jpg")} />
+                                    <Avatar>
+                                        <Image src={'/img/card/'.concat(nameToText(libraryCard.name)).concat(".jpg")} />
+                                    </Avatar>
                                 </ListItemAvatar>
                                 <ListItemText
                                     key={"ListItemText" + libraryCard.id}
