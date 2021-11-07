@@ -1,9 +1,15 @@
-import { React, useState } from "react";
+import * as React from 'react';
 import Link from 'next/link'
 import Image from 'next/image'
-import { List, ListItem, ListItemText, ListItemAvatar, Avatar, Container, TextField } from "@material-ui/core"
+import { List, ListItem, ListItemText, ListItemAvatar, Avatar, Container, TextField, SvgIcon } from "@material-ui/core"
 import styles from '../styles/Alamuthq.module.css'
 import getAllCards from './api/getCards'
+
+import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
+import BookmarkIcon from '@mui/icons-material/Bookmark';
+import Checkbox from '@mui/material/Checkbox';
+import Icon from '@material-ui/core/Icon';
+import { makeStyles } from '@material-ui/styles';
 
 
 export const getStaticProps = async () => {
@@ -20,7 +26,7 @@ export const getStaticProps = async () => {
 
 function Library({ libraryCards }) {
 
-    const [filteredCards, setFilteredCards] = useState(libraryCards)
+    const [filteredCards, setFilteredCards] = React.useState(libraryCards)
 
     const handleChange = (e) => {
         if (e.target.value.length < 3) {
@@ -41,6 +47,7 @@ function Library({ libraryCards }) {
         <div>
             <Container>
                 <h1>All Library Cards</h1>
+                {/* <DisciplinesGroup /> */}
                 <TextField
                     id="standard-search"
                     label="Choose 3+ Letters"
@@ -63,7 +70,7 @@ function Library({ libraryCards }) {
                                 <ListItemText
                                     key={"ListItemText" + libraryCard.id}
                                     primary={libraryCard.name}
-                                    secondary={getDisciplines(libraryCard)}
+                                    secondary={getTypes(libraryCard)}
                                 />
                             </ListItem>
                         </Link>
@@ -74,6 +81,26 @@ function Library({ libraryCards }) {
     )
 
 }
+function DisciplinesGroup() {
+
+    const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+
+    return (
+        <div>
+
+            <Checkbox
+                {...label}
+                icon={<Image src='/img/svg/disc/inf/aus.svg' layout='fill' />}
+            />
+            <Checkbox
+                {...label}
+                icon={<BookmarkBorderIcon />}
+                checkedIcon={<BookmarkIcon />}
+            />
+        </div>
+    );
+}
+
 
 
 function nameToText(text) {
@@ -99,153 +126,107 @@ function nameToText(text) {
 }
 
 
-function getDisciplines(card) {
-    if (card.disciplines) {
-        return card.disciplines.map((getDiscipline) => (
-            <i>{disciplineIcon(getDiscipline)}</i>
+function getTypes(card) {
+    if (card.types) {
+        return card.types.map((type) => (
+            <i key={card._name + type}>{allIcons.get(type)}</i>
         ));
     }
 }
 
 
-function disciplineIcon(discipline) {
-    switch (discipline) {
-        //Inferior
-        case "abo":
-            return "w";
-        case "ani":
-            return "i";
-        case "aus":
-            return "a";
-        case "cel":
-            return "c";
-        case "chi":
-            return "k";
-        case "dai":
-            return "y";
-        case "def":
-            return "@";
-        case "dem":
-            return "e";
-        case "dom":
-            return "d";
-        case "flight":
-            return "^";
-        case "for":
-            return "f";
-        case "inn":
-            return "#";
-        case "jus":
-            return "%";
-        case "mal":
-            return "^";
-        case "mar":
-            return "&";
-        case "mel":
-            return "m";
-        case "myt":
-            return "x";
-        case "nec":
-            return "n";
-        case "obe":
-            return "b";
-        case "obf":
-            return "o";
-        case "obt":
-            return "$";
-        case "pot":
-            return "p";
-        case "pre":
-            return "r";
-        case "pro":
-            return "j";
-        case "qui":
-            return "q";
-        case "red":
-            return "*";
-        case "san":
-            return "g";
-        case "ser":
-            return "s";
-        case "spi":
-            return "z";
-        case "str":
-            return "<";
-        case "tem":
-            return "(";
-        case "tha":
-            return "t";
-        case "thn":
-            return "h";
-        case "val":
-            return "l";
-        case "ven":
-            return "^";
-        case "vic":
-            return "v";
-        case "vin":
-            return ")";
-        case "vis":
-            return "u";
+const allIcons = new Map([
+    //Inferior Discipline
+    ["abo", "w"],
+    ["ani", "i"],
+    ["aus", "a"],
+    ["cel", "c"],
+    ["chi", "k"],
+    ["dai", "y"],
+    ["def", "@"],
+    ["dem", "e"],
+    ["dom", "d"],
+    ["flight", "^"],
+    ["for", "f"],
+    ["inn", "#"],
+    ["jus", "%"],
+    ["mal", "<"],
+    ["mar", "&"],
+    ["mel", "m"],
+    ["myt", "x"],
+    ["nec", "n"],
+    ["obe", "b"],
+    ["obf", "o"],
+    ["obt", "$"],
+    ["pot", "p"],
+    ["pre", "r"],
+    ["pro", "j"],
+    ["qui", "q"],
+    ["red", "*"],
+    ["san", "g"],
+    ["ser", "s"],
+    ["spi", "z"],
+    ["str", "+"],
+    ["tem", "?"],
+    ["tha", "t"],
+    ["thn", "h"],
+    ["val", "l"],
+    ["ven", "^"],
+    ["vic", "v"],
+    ["vin", ")"],
+    ["vis", "u"],
 
-        //superior
-        case "ABO":
-            return "W";
-        case "ANI":
-            return "I";
-        case "AUS":
-            return "A";
-        case "CEL":
-            return "C";
-        case "CHI":
-            return "K";
-        case "DAI":
-            return "Y";
-        case "DEM":
-            return "E";
-        case "DOM":
-            return "D";
-        case "FOR":
-            return "F";
-        case "MEL":
-            return "M";
-        case "MYT":
-            return "X";
-        case "NEC":
-            return "N";
-        case "OBE":
-            return "B";
-        case "OBF":
-            return "O";
-        case "POT":
-            return "P";
-        case "PRE":
-            return "R";
-        case "PRO":
-            return "J";
-        case "QUI":
-            return "Q";
-        case "SAN":
-            return "G";
-        case "SER":
-            return "S";
-        case "SPI":
-            return "Z";
-        case "THA":
-            return "T";
-        case "THN":
-            return "H";
-        case "VAL":
-            return "L";
-        case "VIC":
-            return "V";
-        case "VIS":
-            return "U";
+    // Superior Discipline
+    ["ABO", "W"],
+    ["ANI", "I"],
+    ["AUS", "A"],
+    ["CEL", "C"],
+    ["CHI", "K"],
+    ["DAI", "Y"],
+    ["DEM", "E"],
+    ["DOM", "D"],
+    ["FOR", "F"],
+    ["MAL", ">"],
+    ["MEL", "M"],
+    ["MYT", "X"],
+    ["NEC", "N"],
+    ["OBE", "B"],
+    ["OBF", "O"],
+    ["OBT", "£"],
+    ["POT", "P"],
+    ["PRE", "R"],
+    ["PRO", "J"],
+    ["QUI", "Q"],
+    ["SAN", "G"],
+    ["SER", "S"],
+    ["SPI", "Z"],
+    ["STR", "="],
+    ["TEM", "!"],
+    ["THA", "T"],
+    ["THN", "H"],
+    ["VAL", "L"],
+    ["VIC", "V"],
+    ["VIS", "U"],
 
-        default:
-            return "^";
-    }
-}
+    //Card Types
+    ["Action", "0"],
+    ["Action Modifier", "1"],
+    ["Ally", "3"],
+    ["Combat", "4"],
+    ["Conviction", "^"],
+    ["Crypt", "^"],
+    ["Equipment", "5"],
+    ["Event", "["],
+    ["Imbued", "^"],
+    ["Library", "^"],
+    ["Master", "9"],
+    ["Political Action", "2"],
+    ["Power", "§"],
+    ["Reaction", "7"],
+    ["Retainer", "8"],
+    ["Vampire", "^"],
+]);
+
 
 export default Library
 

@@ -6,20 +6,30 @@
   font-family: "VTES Clans";
   src: url("./vtes-clans.otf") format("opentype");
 }
+
+.custom-checkbox-root .MuiSvgIcon-root {
+  width: 36px;
+  height: 36px;
+  font-size: medium;
+}
+
 i {
   font-family: "Ankha VTES";
   font-style: normal;
   color: #606060;
+  font-size: large;
 }
 c {
   font-family: "VTES Clans";
   font-style: normal;
   color: #606060;
+  font-size: large;
 }
 .disciplineCrypt {
   color: #808080;
   font-family: "Ankha VTES";
   font-style: normal;
+  font-size: large;
 }
 
 body {
