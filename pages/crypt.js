@@ -25,15 +25,11 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 library.add(fas);
 
 import icon from '../components/disciplines.js'
-import moch from '../moch/krcgCrypt.json'
-
+import getAllCards from './api/getCards'
 
 export const getStaticProps = async () => {
-    const res = await fetch('https://static.krcg.org/data/vtes.json');
-    const krcg = await res.json()
-    // const krcg = moch
-
-    const cryptCards = krcg.filter((card) =>
+    const allCards = await getAllCards()
+    const cryptCards = allCards.filter((card) =>
         (card.types.includes('Vampire') || card.types.includes('Imbued'))
     )
     return {
@@ -119,7 +115,10 @@ function Crypt({ cryptCards }) {
                             <ListItem button component={"a"}>
                                 <ListItemAvatar>
                                     <Avatar>
-                                        <Image src={'/img/card/'.concat(nameToText(cryptCard._name)).concat(".jpg")} />
+                                        <Image
+                                            src={'/img/card/'.concat(nameToText(cryptCard._name)).concat(".jpg")}
+                                            layout='fill'
+                                        />
                                     </Avatar>
                                 </ListItemAvatar>
                                 <ListItemText

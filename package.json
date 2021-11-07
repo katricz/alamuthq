@@ -17,6 +17,7 @@
     "ansi-regex": ">=6.0.1",
     "axios": "^0.21.2",
     "bootstrap": "^5.1.0",
+    "fs": "^0.0.1-security",
     "next": "^11.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

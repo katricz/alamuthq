@@ -3,15 +3,12 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { List, ListItem, ListItemText, ListItemAvatar, Avatar, Container, TextField } from "@material-ui/core"
 import styles from '../styles/Alamuthq.module.css'
-import moch from '../moch/krcgCrypt.json'
+import getAllCards from './api/getCards'
 
 
 export const getStaticProps = async () => {
-    const res = await fetch('https://static.krcg.org/data/vtes.json');
-    const krcg = await res.json()
-    // const krcg = moch
-
-    const libraryCards = krcg.filter((card) =>
+    const allCards = await getAllCards()
+    const libraryCards = allCards.filter((card) =>
         !(card.types.includes('Vampire') || card.types.includes('Imbued'))
     )
     return {
@@ -20,8 +17,6 @@ export const getStaticProps = async () => {
         }
     }
 }
-
-
 
 function Library({ libraryCards }) {
 
@@ -59,7 +54,10 @@ function Library({ libraryCards }) {
                             <ListItem button key={"ListItem" + libraryCard.id} component={"a"}>
                                 <ListItemAvatar>
                                     <Avatar>
-                                        <Image src={'/img/card/'.concat(nameToText(libraryCard.name)).concat(".jpg")} />
+                                        <Image
+                                            src={'/img/card/'.concat(nameToText(libraryCard.name)).concat(".jpg")}
+                                            layout='fill'
+                                        />
                                     </Avatar>
                                 </ListItemAvatar>
                                 <ListItemText
