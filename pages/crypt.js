@@ -205,7 +205,7 @@ function nameToText(text) {
         .replace(/é|ë|è/g, "e")
         .replace(/œ/g, "oe")
         .replace(/ç/g, "c")
-        .replace(/á|ã|å/g, "a")
+        .replace(/á|ã|å|ä/g, "a")
         .replace(/í|î/g, "i")
         .replace(/ñ/g, "n")
         .replace(/ü|ú/g, "u");

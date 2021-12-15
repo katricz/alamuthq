@@ -1,19 +1,38 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import getAllCards from '../api/getCards'
 import moch from '../../moch/krcgCrypt.json'
 
 
-
-
 export const getStaticPaths = async () => {
-    const res = await fetch('https://static.krcg.org/data/vtes.json');
-    const krcg = await res.json();
-    // const krcg = moch
+    const krcg = await getAllCards()
+    //   const krcg = moch
 
-    //Get Name
+    //Get CardName, add g# to crypt cards
     const krcgName = krcg.map(function (card, index) {
-        const cardName = nameToText(card._name)
-        return cardName
+
+        //Crypt Card
+        if (card.types.includes('Vampire') || card.types.includes('Imbued')) {
+
+            // Group ANY
+            if (card.group === 'ANY') {
+                const cardName = nameToText(card._name) + card.group
+                // console.log(cardName)
+                return cardName
+            }
+
+            // All other Crypts
+            let cardName = nameToText(card._name) + 'g' + card.group
+            // add ADV 
+            if (card.adv) { cardName = cardName + 'adv' }
+
+            return cardName
+
+            //Library Cards
+        } else {
+            const cardName = nameToText(card._name)
+            return cardName
+        }
     })
 
     const paths = krcgName.map(card => {
@@ -23,15 +42,16 @@ export const getStaticPaths = async () => {
     })
     return {
         paths,
-        fallback: true
+        fallback: false
     }
 
 }
 
+
 export const getStaticProps = async (context) => {
-    const krcg = context.params.card
+    const card = context.params.card
     return {
-        props: { card: krcg }
+        props: { card: card }
     }
 }
 
@@ -78,7 +98,7 @@ function nameToText(text) {
         .replace(/é|ë|è/g, "e")
         .replace(/œ/g, "oe")
         .replace(/ç/g, "c")
-        .replace(/á|ã|å/g, "a")
+        .replace(/á|ã|å|ä/g, "a")
         .replace(/í|î/g, "i")
         .replace(/ñ/g, "n")
         .replace(/ü|ú/g, "u");

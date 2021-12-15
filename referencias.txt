@@ -3,9 +3,14 @@ https://vtesdecks.com/
 https://www.vekn.net/
 https://codex-of-the-damned.org/en/index.html
 https://static.krcg.org/
+https://static.krcg.org/card/
 https://api.krcg.org/
 
 Creditos: 3008dmalves@gmail.com - DonHawK
+
+Mobx
+https://www.youtube.com/watch?v=pnhIJA64ByY
+https://www.youtube.com/watch?v=WQQq1QbYlAw
 
 Certificate
 https://git.coolaj86.com/coolaj86/greenlock-express.js
