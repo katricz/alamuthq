@@ -60,9 +60,6 @@ function Crypt({ cryptCards }) {
         }
     }
 
-
-
-
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => {
         setOpen(true);
@@ -70,6 +67,32 @@ function Crypt({ cryptCards }) {
     const handleClose = () => {
         setOpen(false);
     };
+
+
+    function getCardName(cryptCard) {
+        if (cryptCard.types.includes('Vampire') || cryptCard.types.includes('Imbued')) {
+
+            // Group ANY
+            if (cryptCard.group === 'ANY') {
+                const cardName = nameToText(cryptCard._name) + cryptCard.group
+                // console.log(cardName)
+                return cardName
+            }
+
+            // All other Crypts
+            let cardName = nameToText(cryptCard._name) + 'g' + cryptCard.group
+            // add ADV 
+            if (cryptCard.adv) { cardName = cardName + 'adv' }
+            return cardName
+
+            //Library Cards
+        } else {
+            const cardName = nameToText(cryptCard._name)
+            return cardName
+        }
+    }
+
+
 
     return (
         <div>
@@ -111,12 +134,12 @@ function Crypt({ cryptCards }) {
                 </div>
                 <List>
                     {filteredCards.map(cryptCard => (
-                        <Link href={'/card/' + nameToText(cryptCard._name)} key={"Link" + cryptCard.id}>
+                        <Link href={'/card/' + getCardName(cryptCard)} key={"Link" + cryptCard.id}>
                             <ListItem button component={"a"}>
                                 <ListItemAvatar>
                                     <Avatar>
                                         <Image
-                                            src={'/img/card/'.concat(nameToText(cryptCard._name)).concat(".jpg")}
+                                            src={'/img/card/'.concat(getCardName(cryptCard)).concat(".jpg")}
                                             layout='fill'
                                         />
                                     </Avatar>

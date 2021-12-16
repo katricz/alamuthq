@@ -25,7 +25,6 @@ export const getStaticPaths = async () => {
             let cardName = nameToText(card._name) + 'g' + card.group
             // add ADV 
             if (card.adv) { cardName = cardName + 'adv' }
-
             return cardName
 
             //Library Cards
