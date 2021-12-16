@@ -1,6 +1,13 @@
+const Inventory = () => {
+    return (null)
+}
+export default Inventory;
+
+
+/*
+
 import { useState, FC } from "react";
 import { observer } from "mobx-react-lite";
-import { useStore } from "../src/store";
 
 const Inventory = () => {
     return (
@@ -81,3 +88,5 @@ const Blocks = observer(() => {
 });
 
 export default Inventory;
+
+*/
