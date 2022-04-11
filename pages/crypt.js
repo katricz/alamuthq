@@ -60,6 +60,8 @@ function Crypt({ cryptCards }) {
         }
     }
 
+
+
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => {
         setOpen(true);
@@ -101,10 +103,9 @@ function Crypt({ cryptCards }) {
                 <div>
                     <TextField
                         id="standard-search"
-                        label="Choose 3+ Letters"
+                        label="Choose The Evil One with 3+ Letters"
                         type="search"
                         onChange={handleChange}
-
                     />
                     <>
                         <IconButton

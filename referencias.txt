@@ -9,8 +9,12 @@ https://api.krcg.org/
 Creditos: 3008dmalves@gmail.com - DonHawK
 
 Mobx
+https://github.com/vercel/next.js/tree/master/examples/with-mobx
+https://www.youtube.com/watch?v=FzlurzsCW4M
 https://www.youtube.com/watch?v=pnhIJA64ByY
 https://www.youtube.com/watch?v=WQQq1QbYlAw
+https://dev.to/ivandotv/mobx-server-side-rendering-with-next-js-4m18
+
 
 Certificate
 https://git.coolaj86.com/coolaj86/greenlock-express.js
@@ -50,3 +54,5 @@ import 'react-virtualized/styles.css';
 Lista com Pesquisa
 https://embed.plnkr.co/plunk/fdDIOO 
 https://www.youtube.com/watch?v=SX_IL7LqSxM
+
+
