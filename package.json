@@ -30,6 +30,7 @@
     "sharp": ">=0.30.5"
   },
   "devDependencies": {
+    "@netlify/plugin-nextjs": "^4.12.2",
     "@popperjs/core": "^2.9.3",
     "webpack": "^5.49.0"
   },
