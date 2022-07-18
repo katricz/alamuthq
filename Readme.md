@@ -1,19 +1,2 @@
-Some util commands when I build this project
+### This project page: https://alamuthq.netlify.app/
 
-Install react and nextjs
-[ https://reactstrap.github.io/ ]
-[ https://nextjs.org/docs ]
-### npm install next react react-dom
-
-Install Material-UI
-### npm install @material-ui/core
-### npm install @material-ui/icons
-
-Install Dependencies
-### npm install
-
-Run project localy with dev mode
-### npm run dev
-
-Realizar conexao com API
-### npm install --save axios
