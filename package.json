@@ -38,6 +38,10 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "engines": {
+    "node": ">=25.2.1",
+    "npm": ">=10.0.0"
+  },
   "plnkr": {
     "runtime": "system",
     "useHotReload": true
