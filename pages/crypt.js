@@ -2,21 +2,19 @@ import * as React from 'react';
 import { useState } from "react";
 import Link from 'next/link'
 import Image from 'next/image'
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import {
-    List,
-    ListItem,
-    ListItemText,
-    ListItemAvatar,
-    Avatar,
-    Container,
-    TextField
-} from "@material-ui/core"
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import Avatar from '@mui/material/Avatar';
+import Container from '@mui/material/Container';
+import TextField from '@mui/material/TextField';
 
 // Icones do awesomefont
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -136,12 +134,14 @@ function Crypt({ cryptCards }) {
                 <List>
                     {filteredCards.map(cryptCard => (
                         <Link href={'/card/' + getCardName(cryptCard)} key={"Link" + cryptCard.id}>
-                            <ListItem button component={"a"}>
+                            <ListItem sx={{ cursor: 'pointer' }}>
                                 <ListItemAvatar>
                                     <Avatar>
                                         <Image
                                             src={'/img/card/'.concat(getCardName(cryptCard)).concat(".jpg")}
-                                            layout='fill'
+                                            fill
+                                            alt={cryptCard._name}
+                                            sizes="40px"
                                         />
                                     </Avatar>
                                 </ListItemAvatar>

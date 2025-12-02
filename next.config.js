@@ -1,4 +1,14 @@
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   reactStrictMode: true,
+  generateBuildId: () => 'build',
+  images: {
+    remotePatterns: [],
+    unoptimized: false,
+  },
+  eslint: {
+    ignoreDuringBuilds: false,
+  },
 }
-generateBuildId: () => 'build'
+
+module.exports = nextConfig

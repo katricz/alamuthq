@@ -60,21 +60,21 @@ function Card(params) {
         <>
             <div>
                 <Link href='/crypt'>
-                    <a> Back Crypt </a>
+                    Back Crypt
                 </Link>
             </div>
             <div>
                 <Link href='/library'>
-                    <a> Back Library </a>
+                    Back Library
                 </Link>
             </div>
             <div>
                 <Image
                     src={'/img/card/' + params.card + '.jpg'}
-                    layout="intrinsic"
-                    width='358px'
-                    height='500px'
-                    quality='75'
+                    width={358}
+                    height={500}
+                    quality={75}
+                    alt={params.card}
                 />
             </div>
         </>

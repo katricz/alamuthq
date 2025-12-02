@@ -2,7 +2,13 @@ import React from "react";
 import Link from 'next/link'
 import Image from 'next/image'
 import { useLocalObservable, useObserver } from "mobx-react";
-import { List, ListItem, ListItemText, ListItemAvatar, Avatar, Container, TextField } from "@material-ui/core"
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import Avatar from '@mui/material/Avatar';
+import Container from '@mui/material/Container';
+import TextField from '@mui/material/TextField';
 import getAllCards from './api/getCards'
 
 export const getStaticProps = async () => {
@@ -108,7 +114,7 @@ export default function Inventory2({ libraryCards }) {
                 <List>
                     {libraryCards.map(libraryCard => (
                         <Link href={'/card/' + nameToText(libraryCard.name)} key={"Link" + libraryCard.id}>
-                            <ListItem button key={"ListItem" + libraryCard.id} component={"a"}>
+                            <ListItem key={"ListItem" + libraryCard.id} sx={{ cursor: 'pointer' }}>
                                 <ListItemAvatar>
                                     <Avatar>
                                         <Image

@@ -1,15 +1,21 @@
 import * as React from 'react';
 import Link from 'next/link'
 import Image from 'next/image'
-import { List, ListItem, ListItemText, ListItemAvatar, Avatar, Container, TextField, SvgIcon } from "@material-ui/core"
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import Avatar from '@mui/material/Avatar';
+import Container from '@mui/material/Container';
+import TextField from '@mui/material/TextField';
+import SvgIcon from '@mui/material/SvgIcon';
 import styles from '../styles/Alamuthq.module.css'
 import getAllCards from './api/getCards'
 
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 import Checkbox from '@mui/material/Checkbox';
-import Icon from '@material-ui/core/Icon';
-import { makeStyles } from '@material-ui/styles';
+import Icon from '@mui/material/Icon';
 
 
 export const getStaticProps = async () => {
@@ -58,12 +64,14 @@ function Library({ libraryCards }) {
                 <List>
                     {filteredCards.map(libraryCard => (
                         <Link href={'/card/' + nameToText(libraryCard.name)} key={"Link" + libraryCard.id}>
-                            <ListItem button key={"ListItem" + libraryCard.id} component={"a"}>
+                            <ListItem key={"ListItem" + libraryCard.id} sx={{ cursor: 'pointer' }}>
                                 <ListItemAvatar>
                                     <Avatar>
                                         <Image
                                             src={'/img/card/'.concat(nameToText(libraryCard.name)).concat(".jpg")}
-                                            layout='fill'
+                                            fill
+                                            alt={libraryCard.name}
+                                            sizes="40px"
                                         />
                                     </Avatar>
                                 </ListItemAvatar>
