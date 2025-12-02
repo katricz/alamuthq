@@ -29,12 +29,15 @@ function Sidebar(props) {
     const { icon, primary, to, newtab } = props;
 
     return (
-        <NextLink href={to} target={newtab}>
-            <ListItem component="li" sx={{ cursor: 'pointer' }}>
-                {icon ? <ListItemIcon> {icon} </ListItemIcon> : null}
-                <ListItemText primary={primary} />
-            </ListItem>
-        </NextLink>
+        <ListItem 
+            component={NextLink} 
+            href={to} 
+            target={newtab}
+            sx={{ cursor: 'pointer' }}
+        >
+            {icon ? <ListItemIcon> {icon} </ListItemIcon> : null}
+            <ListItemText primary={primary} />
+        </ListItem>
     );
 }
 

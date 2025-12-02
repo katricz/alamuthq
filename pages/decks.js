@@ -6,9 +6,7 @@ function Decks() {
         <Container>
             <div>
                 Welcome to AlamutHQ <br />
-                <Link href='/'>
-                    HomePage
-                </Link>
+                <Link href='/'>HomePage</Link>
             </div>
         </Container>
     )

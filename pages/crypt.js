@@ -24,6 +24,9 @@ library.add(fas);
 
 import icon from '../components/disciplines.js'
 import getAllCards from './api/getCards'
+import { nameToText } from '../utils/stringHelpers'
+import { getCardName } from '../utils/cardHelpers'
+import { allDisciplines, infDisciplines, modalStyle } from '../utils/constants'
 
 export const getStaticProps = async () => {
     const allCards = await getAllCards()
@@ -37,9 +40,6 @@ export const getStaticProps = async () => {
     }
 }
 
-
-
-
 function Crypt({ cryptCards }) {
 
     const [filteredCards, setFilteredCards] = useState(cryptCards)
@@ -49,16 +49,14 @@ function Crypt({ cryptCards }) {
             setFilteredCards(cryptCards)
         } else {
             const searchValue = nameToText(e.target.value)
-            const filtered = cryptCards.filter(cryptCards =>
-                cryptCards._name.toLowerCase().includes(searchValue) ||
-                cryptCards.card_text.toLowerCase().includes(searchValue) ||
-                cryptCards.url.toLowerCase().includes(searchValue) // Apenas pra filtrar ç ö etc, tenho q achar solução melhor
+            const filtered = cryptCards.filter(cryptCard =>
+                cryptCard._name.toLowerCase().includes(searchValue) ||
+                cryptCard.card_text.toLowerCase().includes(searchValue) ||
+                cryptCard.url.toLowerCase().includes(searchValue)
             )
             setFilteredCards(filtered);
         }
     }
-
-
 
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => {
@@ -67,32 +65,6 @@ function Crypt({ cryptCards }) {
     const handleClose = () => {
         setOpen(false);
     };
-
-
-    function getCardName(cryptCard) {
-        if (cryptCard.types.includes('Vampire') || cryptCard.types.includes('Imbued')) {
-
-            // Group ANY
-            if (cryptCard.group === 'ANY') {
-                const cardName = nameToText(cryptCard._name) + cryptCard.group
-                // console.log(cardName)
-                return cardName
-            }
-
-            // All other Crypts
-            let cardName = nameToText(cryptCard._name) + 'g' + cryptCard.group
-            // add ADV 
-            if (cryptCard.adv) { cardName = cardName + 'adv' }
-            return cardName
-
-            //Library Cards
-        } else {
-            const cardName = nameToText(cryptCard._name)
-            return cardName
-        }
-    }
-
-
 
     return (
         <div>
@@ -120,12 +92,12 @@ function Crypt({ cryptCards }) {
                             aria-labelledby="parent-modal-title"
                             aria-describedby="parent-modal-description"
                         >
-                            <Box sx={style}>
+                            <Box sx={modalStyle}>
                                 <Typography id="modal-modal-title" variant="h6" component="h2">
                                     Choose carefully!
                                 </Typography>
 
-                                <Disciplines />
+                                <Disciplines cryptCards={cryptCards} setFilteredCards={setFilteredCards} />
                             </Box>
                         </Modal>
                     </>
@@ -133,25 +105,28 @@ function Crypt({ cryptCards }) {
                 </div>
                 <List>
                     {filteredCards.map(cryptCard => (
-                        <Link href={'/card/' + getCardName(cryptCard)} key={"Link" + cryptCard.id}>
-                            <ListItem sx={{ cursor: 'pointer' }}>
-                                <ListItemAvatar>
-                                    <Avatar>
-                                        <Image
-                                            src={'/img/card/'.concat(getCardName(cryptCard)).concat(".jpg")}
-                                            fill
-                                            alt={cryptCard._name}
-                                            sizes="40px"
-                                        />
-                                    </Avatar>
-                                </ListItemAvatar>
-                                <ListItemText
-                                    key={"ListItemText" + cryptCard.id}
-                                    primary={cryptCard._name}
-                                    secondary={icon.getDiscipline(cryptCard.disciplines)}
-                                />
-                            </ListItem>
-                        </Link>
+                        <ListItem 
+                            key={"ListItem" + cryptCard.id}
+                            component={Link} 
+                            href={'/card/' + getCardName(cryptCard)} 
+                            sx={{ cursor: 'pointer' }}
+                        >
+                            <ListItemAvatar>
+                                <Avatar>
+                                    <Image
+                                        src={'/img/card/'.concat(getCardName(cryptCard)).concat(".jpg")}
+                                        fill
+                                        alt={cryptCard._name}
+                                        sizes="40px"
+                                    />
+                                </Avatar>
+                            </ListItemAvatar>
+                            <ListItemText
+                                key={"ListItemText" + cryptCard.id}
+                                primary={cryptCard._name}
+                                secondary={icon.getDiscipline(cryptCard.disciplines)}
+                            />
+                        </ListItem>
                     ))}
                 </List>
             </Container>
@@ -161,7 +136,7 @@ function Crypt({ cryptCards }) {
 }
 
 
-function Disciplines() {
+function Disciplines({ cryptCards, setFilteredCards }) {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => {
         setOpen(true);
@@ -169,11 +144,10 @@ function Disciplines() {
     const handleClose = () => {
         setOpen(false);
     };
-    const handleClick = (e) => {
-        if (e.toLowerCase()) {
-            console.log("handleClick e = " + e)
-            const filtered = cryptCards.filter(cryptCards =>
-                cryptCards.disciplines.includes(e)
+    const handleClick = (discipline) => {
+        if (discipline.toLowerCase()) {
+            const filtered = cryptCards.filter(cryptCard =>
+                cryptCard.disciplines && cryptCard.disciplines.includes(discipline)
             )
             setFilteredCards(filtered);
         }
@@ -181,7 +155,6 @@ function Disciplines() {
     const allIcons = infDisciplines
     return (
         <React.Fragment>
-
             <Button onClick={handleOpen}>Disciplines</Button>
             <Modal
                 hideBackdrop
@@ -190,18 +163,13 @@ function Disciplines() {
                 aria-labelledby="child-modal-title"
                 aria-describedby="child-modal-description"
             >
-                <Box sx={{ ...style, width: 315 }}>
-                    {/* <h2 id="child-modal-title">Text in a child modal</h2>
-                    <p id="child-modal-description">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    </p> */}
+                <Box sx={{ ...modalStyle, width: 315 }}>
                     <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                         <div className='disciplineCrypt' >
                             {allIcons.map((discipline) => (
                                 <IconButton
                                     key={discipline}
                                     onClick={() => handleClick(discipline)}
-
                                 >
                                     {allDisciplines.get(discipline)}
                                 </IconButton>
@@ -214,124 +182,4 @@ function Disciplines() {
     );
 }
 
-function nameToText(text) {
-    if (!text) {
-        return undefined;
-    }
-    text = text.toLowerCase();
-    if (text.startsWith("the ")) {
-        text = text.substr(4, text.length) + "the";
-    }
-    text = text
-        .replace(/™/g, "tm")
-        .replace(/\s|,|\.|-|—|'|’|:|\(|\)|"|\/| |!/g, "")
-        .replace(/ö|ó|ø/g, "o")
-        .replace(/é|ë|è/g, "e")
-        .replace(/œ/g, "oe")
-        .replace(/ç/g, "c")
-        .replace(/á|ã|å|ä/g, "a")
-        .replace(/í|î/g, "i")
-        .replace(/ñ/g, "n")
-        .replace(/ü|ú/g, "u");
-    return text;
-}
-
-const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    pt: 2,
-    px: 4,
-    pb: 3,
-};
-
-const infDisciplines = [
-    "abo", "ani", "aus", "cel", "chi",
-    "dai", "dem", "dom", "for", "mal",
-    "mel", "myt", "nec", "obe", "obf",
-    "obt", "pot", "pre", "pro", "qui",
-    "san", "ser", "spi", "str", "tem",
-    "tha", "thn", "val", "vic", "vis"]
-
-const allDisciplines = new Map([
-
-    ["abo", "w"],
-    ["ani", "i"],
-    ["aus", "a"],
-    ["cel", "c"],
-    ["chi", "k"],
-    ["dai", "y"],
-    ["def", "@"],
-    ["dem", "e"],
-    ["dom", "d"],
-    ["flight", "^"],
-    ["for", "f"],
-    ["inn", "#"],
-    ["jus", "%"],
-    ["mal", "<"],
-    ["mar", "&"],
-    ["mel", "m"],
-    ["myt", "x"],
-    ["nec", "n"],
-    ["obe", "b"],
-    ["obf", "o"],
-    ["obt", "$"],
-    ["pot", "p"],
-    ["pre", "r"],
-    ["pro", "j"],
-    ["qui", "q"],
-    ["red", "*"],
-    ["san", "g"],
-    ["ser", "s"],
-    ["spi", "z"],
-    ["str", "+"],
-    ["tem", "?"],
-    ["tha", "t"],
-    ["thn", "h"],
-    ["val", "l"],
-    ["ven", "^"],
-    ["vic", "v"],
-    ["vin", ")"],
-    ["vis", "u"],
-
-    ["ABO", "W"],
-    ["ANI", "I"],
-    ["AUS", "A"],
-    ["CEL", "C"],
-    ["CHI", "K"],
-    ["DAI", "Y"],
-    ["DEM", "E"],
-    ["DOM", "D"],
-    ["FOR", "F"],
-    ["MAL", ">"],
-    ["MEL", "M"],
-    ["MYT", "X"],
-    ["NEC", "N"],
-    ["OBE", "B"],
-    ["OBF", "O"],
-    ["OBT", "£"],
-    ["POT", "P"],
-    ["PRE", "R"],
-    ["PRO", "J"],
-    ["QUI", "Q"],
-    ["SAN", "G"],
-    ["SER", "S"],
-    ["SPI", "Z"],
-    ["STR", "="],
-    ["TEM", "!"],
-    ["THA", "T"],
-    ["THN", "H"],
-    ["VAL", "L"],
-    ["VIC", "V"],
-    ["VIS", "U"],
-]);
-
-
-
 export default Crypt
-

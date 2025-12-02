@@ -59,14 +59,10 @@ function Card(params) {
     return (
         <>
             <div>
-                <Link href='/crypt'>
-                    Back Crypt
-                </Link>
+                <Link href='/crypt'>Back Crypt</Link>
             </div>
             <div>
-                <Link href='/library'>
-                    Back Library
-                </Link>
+                <Link href='/library'>Back Library</Link>
             </div>
             <div>
                 <Image

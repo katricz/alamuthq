@@ -6,7 +6,6 @@ import path from 'path'
 
 
 async function fetchCardsData() {
-    console.log('Fetching all KRCG Cards...')
     const res = await fetch('https://static.krcg.org/data/vtes.json');
     const krcgCards = await res.json()
     return krcgCards
@@ -22,7 +21,7 @@ export default async function getAllCards() {
             fs.readFileSync(KRCG_CARDS_CACHE_PATH, 'utf8')
         )
     } catch (error) {
-        console.log('krcgCards cache not initialized')
+        // Cache not initialized, will fetch from API
     }
 
     if (!cachedData) {
@@ -34,10 +33,9 @@ export default async function getAllCards() {
                 JSON.stringify(data),
                 'utf8'
             )
-            console.log('Wrote to KRCG CARDS cache')
+            // Cache file created successfully
         } catch (error) {
-            console.log('ERROR WRITING KRCG CARDS CACHE TO FILE')
-            console.log(error)
+            // Error writing cache file - will continue with in-memory data
         }
         cachedData = data
     }

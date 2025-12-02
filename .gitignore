@@ -32,3 +32,11 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# cache files
+.krcgCards.json
+
+# backup files
+*.bak
+*_backup.js
+backup*.js
