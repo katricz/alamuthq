@@ -1,6 +1,6 @@
-# 🧛 AlamutHQ - VTES Deck Builder & Inventory
+# 🧛 AlamutHQ - VTES Card Database & Search
 
-**Alamut Headquarters** is a comprehensive web application for Vampire: The Eternal Struggle (VTES) players to build decks, manage card inventory, and search through the complete VTES card database.
+**Alamut Headquarters** is a modern web application for Vampire: The Eternal Struggle (VTES) players to browse, search, and explore the complete VTES card database with advanced filtering capabilities.
 
 🌐 **Live Demo:** [https://alamuthq.netlify.app/](https://alamuthq.netlify.app/)
 
@@ -8,12 +8,38 @@
 
 ## ✨ Features
 
-- 🃏 **Complete Card Database** - Browse all Crypt and Library cards
-- 🔍 **Advanced Search** - Filter cards by name, text, disciplines, and more
-- 📚 **Deck Builder** - Create and manage your VTES decks
-- 📦 **Inventory Management** - Track your card collection
-- 🎨 **Modern UI** - Built with Material-UI for a clean, responsive experience
-- ⚡ **Fast Performance** - Static generation with Next.js for optimal speed
+### 🔍 Advanced Search & Filtering
+- **Comprehensive Filters** - VDB-style advanced filtering system
+- **Discipline Filter** - Click-to-cycle icons (none → inferior → superior)
+- **Multiple Filter Types**:
+  - Text search (name/card text with regex support)
+  - Disciplines (with OR/AND logic)
+  - Capacity/Cost ranges
+  - Clan/Path multi-select
+  - Sect selection
+  - Title filtering (crypt only)
+  - Group selection (crypt only)
+  - Library types and traits
+- **Always-Visible Sidebar** - Filters accessible at all times
+
+### 📊 View Modes
+- **List View** - Detailed card information with stats
+- **Grid View** - Visual card gallery
+- **Table View** - Sortable columns with avatars
+
+### 🎨 UI/UX Features
+- **Discipline Icons** - Custom "Ankha VTES" font integration from KRCG
+- **Clan Icons** - "VTES Clans" font support
+- **Image Carousel** - Browse all card versions and sets
+- **Compact Mode** - Toggle for denser information display
+- **Responsive Design** - Mobile-friendly layout
+- **Real-time Filtering** - Instant results as you filter
+
+### 🃏 Card Database
+- **Complete VTES Database** - All Crypt and Library cards
+- **Multiple Set Support** - View cards from different editions
+- **Card Details** - Full card text, stats, and metadata
+- **KRCG Integration** - Data from static.krcg.org API
 
 ---
 
@@ -21,8 +47,8 @@
 
 ### Prerequisites
 
-- Node.js >= 18.0.0
-- npm >= 10.0.0
+- Node.js >= 25.2.1
+- npm >= 11.6.2
 
 ### Installation
 
@@ -53,12 +79,13 @@ npm run dev
 
 ## 🛠️ Tech Stack
 
-- **Framework:** [Next.js 15](https://nextjs.org/)
-- **UI Library:** [Material-UI (MUI) v6](https://mui.com/)
-- **Styling:** [Emotion](https://emotion.sh/) + CSS Modules
-- **State Management:** MobX (in development)
-- **Icons:** Font Awesome + Material Icons
-- **Deployment:** Netlify
+- **Framework:** [Next.js 15.1.0](https://nextjs.org/) with React 18.3.1
+- **UI Library:** [Material-UI (MUI) v6.3.1](https://mui.com/)
+- **Styling:** CSS Modules + Bootstrap 5.3.3
+- **Custom Fonts:** Ankha VTES (disciplines) + VTES Clans (clans) from KRCG
+- **Data Source:** [KRCG Static API](https://static.krcg.org/data/vtes.json)
+- **Image CDN:** KRCG static server with Next.js Image optimization
+- **Deployment:** Netlify (ready for deployment)
 
 ---
 
@@ -66,25 +93,39 @@ npm run dev
 
 ```
 alamuthq/
-├── components/        # Reusable React components
-│   ├── Menu.js       # Main navigation menu
-│   ├── Sidebar.js    # Navigation sidebar
-│   └── disciplines.js # Discipline icons helper
-├── pages/            # Next.js pages (routes)
-│   ├── api/          # API routes
-│   ├── card/         # Individual card pages
-│   ├── crypt.js      # Crypt cards listing
-│   ├── library.js    # Library cards listing
-│   ├── decks.js      # Deck management
-│   └── inventory.js  # Inventory management
-├── public/           # Static assets
-│   └── img/          # Card images and icons
-├── styles/           # Global styles
-├── utils/            # Utility functions
-│   ├── stringHelpers.js  # Text manipulation
-│   ├── constants.js      # Shared constants
-│   └── cardHelpers.js    # Card-related utilities
-└── moch/             # Mock data for development
+├── components/           # Reusable React components
+│   ├── AdvancedFilters.js # VDB-style filter sidebar
+│   ├── ImageCarousel.js   # Card image carousel
+│   ├── Menu.js           # Main navigation menu
+│   ├── Sidebar.js        # Navigation sidebar
+│   └── disciplines.js    # Discipline icons component
+├── pages/               # Next.js pages (routes)
+│   ├── api/
+│   │   └── getCards.js  # Card data fetching
+│   ├── card/
+│   │   └── [card].js    # Dynamic card detail pages
+│   ├── crypt.js         # Crypt cards browser
+│   ├── library.js       # Library cards browser
+│   ├── decks.js         # Deck management (in development)
+│   ├── inventory.js     # Inventory (in development)
+│   ├── _app.js          # App wrapper
+│   └── _document.js     # HTML document
+├── public/              # Static assets
+│   └── img/             # KRCG card images and icons
+├── styles/              # Styling
+│   ├── globals.css      # Global styles + font definitions
+│   ├── ankha2.otf       # Ankha VTES discipline font
+│   ├── vtes-clans.otf   # VTES Clans font
+│   ├── CardList.module.css        # Card display styles
+│   └── AdvancedFilters.module.css # Filter sidebar styles
+├── utils/               # Utility functions
+│   ├── constants.js     # Discipline/clan mappings
+│   ├── cardHelpers.js   # Card data utilities
+│   ├── imageHelpers.js  # Image URL generation
+│   └── stringHelpers.js # Text manipulation
+└── moch/                # Mock/cached KRCG data
+    ├── krcgCrypt.json
+    └── krcgCryptFull.json
 ```
 
 ---
@@ -135,10 +176,11 @@ This project is licensed under the ISC License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- [KRCG (Kamut Ruling and Card Guide)](https://www.vekn.net/rulebook) for card data API
-- [VTES Decks](https://vtesdecks.com/) for inspiration
-- [Black Chantry Productions](https://www.blackchantry.com/) for VTES
-- All VTES community members
+- **[KRCG](https://static.krcg.org/)** - Card data API, fonts (Ankha VTES, VTES Clans), and images
+- **[VDB](https://vdb.im)** by smeea - UI/UX inspiration and feature reference
+- **[Black Chantry Productions](https://www.blackchantry.com/)** - VTES card game
+- **[VEKN](https://www.vekn.net/)** - Official tournament organizer
+- All VTES community members and contributors
 
 ---
 
@@ -152,14 +194,31 @@ Project Link: [https://github.com/katricz/alamuthq](https://github.com/katricz/a
 
 ## 🗺️ Roadmap
 
+### ✅ Completed
+- [x] Advanced filtering system (VDB-style)
+- [x] Discipline icon integration (Ankha VTES font)
+- [x] Multiple view modes (List/Grid/Table)
+- [x] Image carousel with set variants
+- [x] Sorting functionality
+- [x] Compact mode toggle
+- [x] Real-time filter results
+- [x] Clan icon support (VTES Clans font)
+
+### 🚧 In Progress
 - [ ] Complete deck builder functionality
 - [ ] Implement full inventory management
-- [ ] Add deck statistics and analysis
-- [ ] Implement user authentication
-- [ ] Add deck sharing features
-- [ ] Mobile app version
-- [ ] Advanced filtering options
+
+### 📋 Planned Features
+- [ ] Dark theme implementation
+- [ ] User authentication
+- [ ] Deck statistics and analysis
+- [ ] TWD/TDA/PDA archives integration
+- [ ] Deck sharing features
+- [ ] Advanced deck building tools
 - [ ] Card price integration
+- [ ] Performance optimization (pagination, virtual scrolling)
+- [ ] Mobile app version
+- [ ] Export/import deck lists
 
 ---
 
