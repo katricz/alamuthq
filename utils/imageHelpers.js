@@ -47,6 +47,41 @@ export function getPlaceholderImage() {
 }
 
 /**
+ * Gets all available images for a card (main + scans from different sets)
+ * @param {Object} card - Card object from KRCG API
+ * @returns {Array} Array of objects with {url, setName}
+ */
+export function getAllCardImages(card) {
+    if (!card) {
+        return [];
+    }
+
+    const images = [];
+    
+    // Add main image
+    if (card.url) {
+        images.push({
+            url: card.url,
+            setName: 'Default',
+            isMain: true
+        });
+    }
+    
+    // Add scans from different sets
+    if (card.scans && typeof card.scans === 'object') {
+        Object.entries(card.scans).forEach(([setName, url]) => {
+            images.push({
+                url: url,
+                setName: setName,
+                isMain: false
+            });
+        });
+    }
+    
+    return images;
+}
+
+/**
  * Handles image error by setting placeholder
  * @param {Event} event - Image error event
  */
