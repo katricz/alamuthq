@@ -39,14 +39,6 @@ export function getCardImageByName(cardName) {
 }
 
 /**
- * Gets a placeholder image URL
- * @returns {string} Placeholder image URL
- */
-export function getPlaceholderImage() {
-    return '/img/card-placeholder.jpg';
-}
-
-/**
  * Gets all available images for a card (main + scans from different sets)
  * @param {Object} card - Card object from KRCG API
  * @returns {Array} Array of objects with {url, setName}
@@ -82,10 +74,11 @@ export function getAllCardImages(card) {
 }
 
 /**
- * Handles image error by setting placeholder
+ * Handles image error by hiding the image
  * @param {Event} event - Image error event
  */
 export function handleImageError(event) {
-    event.target.src = getPlaceholderImage();
+    event.target.style.display = 'none';
     event.target.onerror = null; // Prevent infinite loop
+    console.error('Failed to load image:', event.target.src);
 }
