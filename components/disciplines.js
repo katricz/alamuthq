@@ -1,130 +1,111 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import IconButton from '@mui/material/IconButton';
+import { allDisciplines, infDisciplines } from '../utils/constants';
 
-
-const allDisciplines = new Map([
-
-    ["abo", "w"],
-    ["ani", "i"],
-    ["aus", "a"],
-    ["cel", "c"],
-    ["chi", "k"],
-    ["dai", "y"],
-    ["def", "@"],
-    ["dem", "e"],
-    ["dom", "d"],
-    ["flight", "^"],
-    ["for", "f"],
-    ["inn", "#"],
-    ["jus", "%"],
-    ["mal", "<"],
-    ["mar", "&"],
-    ["mel", "m"],
-    ["myt", "x"],
-    ["nec", "n"],
-    ["obe", "b"],
-    ["obf", "o"],
-    ["obt", "$"],
-    ["pot", "p"],
-    ["pre", "r"],
-    ["pro", "j"],
-    ["qui", "q"],
-    ["red", "*"],
-    ["san", "g"],
-    ["ser", "s"],
-    ["spi", "z"],
-    ["str", "+"],
-    ["tem", "?"],
-    ["tha", "t"],
-    ["thn", "h"],
-    ["val", "l"],
-    ["ven", "^"],
-    ["vic", "v"],
-    ["vin", ")"],
-    ["vis", "u"],
-
-    ["ABO", "W"],
-    ["ANI", "I"],
-    ["AUS", "A"],
-    ["CEL", "C"],
-    ["CHI", "K"],
-    ["DAI", "Y"],
-    ["DEM", "E"],
-    ["DOM", "D"],
-    ["FOR", "F"],
-    ["MAL", ">"],
-    ["MEL", "M"],
-    ["MYT", "X"],
-    ["NEC", "N"],
-    ["OBE", "B"],
-    ["OBF", "O"],
-    ["OBT", "£"],
-    ["POT", "P"],
-    ["PRE", "R"],
-    ["PRO", "J"],
-    ["QUI", "Q"],
-    ["SAN", "G"],
-    ["SER", "S"],
-    ["SPI", "Z"],
-    ["STR", "="],
-    ["TEM", "!"],
-    ["THA", "T"],
-    ["THN", "H"],
-    ["VAL", "L"],
-    ["VIC", "V"],
-    ["VIS", "U"],
-]);
-
-function getDiscipline(disciplines) {
-    if (!disciplines) {
-        return undefined;
+/**
+ * Renders discipline icons for a card
+ * @param {Object} props
+ * @param {string[]} props.disciplines - Array of discipline codes
+ * @param {string} [props.className] - Optional CSS class
+ * @returns {JSX.Element|null}
+ */
+function DisciplineIcons({ disciplines, className = '' }) {
+    if (!disciplines || disciplines.length === 0) {
+        return null;
     }
-    else {
-        return (
-            disciplines.map((eachDiscipline, index) => (
-                <i key={index}>{allDisciplines.get(eachDiscipline)}</i>
-
-            ))
-        )
-    }
-}
-
-function getDisciplineMenu() {
-    const infDisciplines = [
-        "abo", "ani", "aus", "cel", "chi",
-        "dai", "dem", "dom", "for", "mal",
-        "mel", "myt", "nec", "obe", "obf",
-        "obt", "pot", "pre", "pro", "qui",
-        "san", "ser", "spi", "str", "tem",
-        "tha", "thn", "val", "vic", "vis"]
-    const supDisciplines = infDisciplines.map(discipline => discipline.toUpperCase())
 
     return (
-        <>
-            <div className='disciplineCrypt'>
-                {infDisciplines.map((discipline) => (
-                    <IconButton>{allDisciplines.get(discipline)}</IconButton>
-                ))}
-            </div>
-        </>
-    )
+        <span className={className}>
+            {disciplines.map((discipline, index) => (
+                <i key={`${discipline}-${index}`}>
+                    {allDisciplines.get(discipline)}
+                </i>
+            ))}
+        </span>
+    );
 }
 
+DisciplineIcons.propTypes = {
+    disciplines: PropTypes.arrayOf(PropTypes.string),
+    className: PropTypes.string,
+};
 
-function getDisciplineMenu1() {
-    const allDisciplines = "abcdefghijklmnopqrstuvwxyz".split("");
+/**
+ * Renders a menu of clickable discipline buttons
+ * @param {Object} props
+ * @param {(discipline: string) => void} props.onDisciplineClick - Callback when discipline is clicked
+ * @param {boolean} [props.showSuperior] - Whether to show superior disciplines
+ * @param {string} [props.className] - Optional CSS class
+ * @returns {JSX.Element}
+ */
+function DisciplineMenu({ onDisciplineClick, showSuperior = false, className = 'disciplineCrypt' }) {
+    const disciplines = showSuperior 
+        ? infDisciplines.map(d => d.toUpperCase())
+        : infDisciplines;
 
     return (
-        <div className='disciplineCrypt'>
-            {allDisciplines.map((discipline) => (
-                <IconButton>{discipline}</IconButton>
+        <div className={className}>
+            {disciplines.map((discipline) => (
+                <IconButton
+                    key={discipline}
+                    onClick={() => onDisciplineClick(discipline)}
+                    aria-label={`Filter by ${discipline}`}
+                    size="small"
+                >
+                    <i>{allDisciplines.get(discipline)}</i>
+                </IconButton>
             ))}
         </div>
-    )
+    );
 }
 
+DisciplineMenu.propTypes = {
+    onDisciplineClick: PropTypes.func.isRequired,
+    showSuperior: PropTypes.bool,
+    className: PropTypes.string,
+};
 
-module.exports = {
-    allDisciplines,
+/**
+ * Renders both inferior and superior discipline menus
+ * @param {Object} props
+ * @param {(discipline: string) => void} props.onDisciplineClick - Callback when discipline is clicked
+ * @returns {JSX.Element}
+ */
+function DisciplineMenuFull({ onDisciplineClick }) {
+    return (
+        <>
+            <h4>Inferior Disciplines</h4>
+            <DisciplineMenu onDisciplineClick={onDisciplineClick} />
+            <h4>Superior Disciplines</h4>
+            <DisciplineMenu onDisciplineClick={onDisciplineClick} showSuperior />
+        </>
+    );
+}
+
+DisciplineMenuFull.propTypes = {
+    onDisciplineClick: PropTypes.func.isRequired,
+};
+
+// Legacy export for backward compatibility
+const getDiscipline = (disciplines) => {
+    if (!disciplines) return undefined;
+    return disciplines.map((discipline, index) => (
+        <i key={index}>{allDisciplines.get(discipline)}</i>
+    ));
+};
+
+export {
+    DisciplineIcons,
+    DisciplineMenu,
+    DisciplineMenuFull,
     getDiscipline,
-    getDisciplineMenu,
-}
+};
+
+export default {
+    DisciplineIcons,
+    DisciplineMenu,
+    DisciplineMenuFull,
+    getDiscipline,
+    allDisciplines,
+};

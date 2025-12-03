@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { styled, useTheme } from '@mui/material/styles';
 import Drawer from '@mui/material/Drawer';
 import AppBar from '@mui/material/AppBar';
@@ -105,6 +106,11 @@ const Main = styled('main', {
 
 
 
+/**
+ * Main menu component with drawer navigation
+ * @param {Object} props
+ * @param {React.ReactNode} props.children - Child components to render in main content
+ */
 export default function Menu({ children }) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -159,3 +165,7 @@ export default function Menu({ children }) {
     </Root>
   );
 }
+
+Menu.propTypes = {
+  children: PropTypes.node.isRequired,
+};

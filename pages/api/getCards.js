@@ -1,43 +1,31 @@
-import * as fs from 'fs';
-import path from 'path'
+// In-memory cache for cards data
+let cardsCache = null;
 
-// Check if .krcgCards.json is empty and get all KRCG cards
-// Save it on file to use as Cache
-
-
+/**
+ * Fetches card data from KRCG API
+ * @returns {Promise<Array>} Array of card objects
+ */
 async function fetchCardsData() {
     const res = await fetch('https://static.krcg.org/data/vtes.json');
-    const krcgCards = await res.json()
-    return krcgCards
+    const krcgCards = await res.json();
+    return krcgCards;
 }
 
-const KRCG_CARDS_CACHE_PATH = path.resolve('.krcgCards.json')
-
+/**
+ * Gets all VTES cards with in-memory caching
+ * @returns {Promise<Array>} Array of all cards
+ */
 export default async function getAllCards() {
-    let cachedData
-
-    try {
-        cachedData = JSON.parse(
-            fs.readFileSync(KRCG_CARDS_CACHE_PATH, 'utf8')
-        )
-    } catch (error) {
-        // Cache not initialized, will fetch from API
+    // Return cached data if available
+    if (cardsCache) {
+        return cardsCache;
     }
 
-    if (!cachedData) {
-        const data = await fetchCardsData()
-
-        try {
-            fs.writeFileSync(
-                path.join(KRCG_CARDS_CACHE_PATH),
-                JSON.stringify(data),
-                'utf8'
-            )
-            // Cache file created successfully
-        } catch (error) {
-            // Error writing cache file - will continue with in-memory data
-        }
-        cachedData = data
-    }
-    return cachedData
+    // Fetch fresh data
+    const data = await fetchCardsData();
+    
+    // Store in memory cache
+    cardsCache = data;
+    
+    return cardsCache;
 }
