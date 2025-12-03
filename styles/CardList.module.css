@@ -1,0 +1,462 @@
+/* Card List Styles - VDB Layout with Sidebar */
+
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.pageLayout {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    flex-direction: row-reverse; /* Sidebar on the right */
+}
+
+.mainContent {
+    flex: 1;
+    min-width: 0;
+}
+
+.sidebar {
+    width: 340px;
+    position: sticky;
+    top: 1rem;
+    max-height: calc(100vh - 2rem);
+    overflow-y: auto;
+    flex-shrink: 0;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 100;
+    padding: 1rem 0;
+    border-bottom: 2px solid #007bff;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.headerContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.title {
+    margin: 0;
+    color: #333;
+    font-size: 1.8rem;
+}
+
+.count {
+    color: #007bff;
+    font-weight: normal;
+    font-size: 1.5rem;
+}
+
+.controls {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.viewToggle {
+    display: flex;
+    gap: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 0.25rem;
+    background: white;
+}
+
+.viewButton {
+    padding: 0.5rem 1rem;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.viewButton:hover {
+    background: #f0f8ff;
+}
+
+.viewButton.active {
+    background: #007bff;
+    color: white;
+}
+
+.sortControl {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.sortControl label {
+    font-weight: 600;
+    color: #555;
+}
+
+.sortControl select {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    background: white;
+}
+
+/* List View */
+.listView {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.cardItem {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    color: inherit;
+}
+
+.cardItem:hover {
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+    border-color: #007bff;
+    transform: translateY(-2px);
+}
+
+.cardImage {
+    width: 60px;
+    height: 84px;
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cardInfo {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: 1rem;
+}
+
+.cardName {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #333;
+    min-width: 200px;
+}
+
+.cardStats {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 60px;
+}
+
+.statLabel {
+    font-size: 0.75rem;
+    color: #666;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.statValue {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.disciplines {
+    display: flex;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+}
+
+.disciplineIcon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0f8ff;
+    border: 2px solid #007bff;
+    border-radius: 50%;
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.clan {
+    font-size: 0.95rem;
+    color: #555;
+    background: #f9f9f9;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+}
+
+/* Grid View */
+.gridView {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.cardGridItem {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    color: inherit;
+}
+
+.cardGridItem:hover {
+    box-shadow: 0 8px 16px rgba(0, 123, 255, 0.2);
+    transform: translateY(-4px);
+}
+
+.cardGridImage {
+    width: 100%;
+    height: 280px;
+    position: relative;
+    background: #f0f0f0;
+}
+
+.cardGridInfo {
+    padding: 0.75rem;
+}
+
+.cardGridName {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.cardGridStats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+/* Table View */
+.tableView {
+    width: 100%;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableHeader {
+    background: #f8f9fa;
+    border-bottom: 2px solid #ddd;
+}
+
+.tableHeader th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #333;
+    cursor: pointer;
+    user-select: none;
+}
+
+.tableHeader th:hover {
+    background: #e9ecef;
+}
+
+.tableRow {
+    border-bottom: 1px solid #eee;
+    transition: background 0.3s;
+    cursor: pointer;
+}
+
+.tableRow:hover {
+    background: #f0f8ff;
+}
+
+.tableCell {
+    padding: 0.75rem 1rem;
+}
+
+/* Compact Mode */
+.compact .cardItem {
+    padding: 0.5rem 1rem;
+}
+
+.compact .cardImage {
+    width: 40px;
+    height: 56px;
+}
+
+.compact .cardName {
+    font-size: 1rem;
+}
+
+.compact .cardStats {
+    gap: 1rem;
+}
+
+.compact .disciplineIcon {
+    width: 24px;
+    height: 24px;
+    font-size: 0.6rem;
+}
+
+/* Loading State */
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    color: #666;
+}
+
+.spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #007bff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin-right: 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Empty State */
+.emptyState {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #666;
+}
+
+.emptyState h2 {
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.emptyState p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.emptyIcon {
+    font-size: 4rem;
+    color: #ddd;
+    margin-bottom: 1rem;
+}
+
+/* Compact Toggle */
+.compactToggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.compactToggle input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.compactToggle label {
+    cursor: pointer;
+    user-select: none;
+    font-weight: 600;
+    color: #555;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .pageLayout {
+        flex-direction: column-reverse; /* Sidebar on top in mobile */
+    }
+
+    .sidebar {
+        width: 100%;
+        position: relative;
+        max-height: 500px;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        position: relative;
+    }
+
+    .headerContent {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .controls {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .gridView {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    .cardInfo {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cardStats {
+        width: 100%;
+    }
+
+    .tableView {
+        overflow-x: auto;
+    }
+}

@@ -1,0 +1,301 @@
+/* Advanced Filters Styles - VDB Style (Sidebar Right) */
+
+.filtersContainer {
+    width: 100%;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+.filtersHeader {
+    padding: 1rem 1.5rem;
+    background: #f8f9fa;
+    border-bottom: 2px solid #007bff;
+    border-radius: 8px 8px 0 0;
+}
+
+.filtersHeader h2 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #007bff;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.filtersPanel {
+    padding: 1.5rem;
+    overflow-y: auto;
+    background: white;
+    height: 100%;
+    border-radius: 0 0 8px 8px;
+}
+
+.filterSection {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.filterSection:last-child {
+    border-bottom: none;
+}
+
+.filterSection h3 {
+    margin: 0 0 0.5rem 0;
+    color: #007bff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.filterHint {
+    font-size: 0.75rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+}
+
+.filterSection label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    user-select: none;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+.filterSection input[type="checkbox"] {
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    accent-color: #007bff;
+}
+
+.filterSection input[type="number"],
+.filterSection select {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    margin-right: 0.5rem;
+    background: white;
+    color: #333;
+}
+
+.filterSection input[type="text"] {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    background: white;
+    color: #333;
+    margin-bottom: 0.75rem;
+}
+
+.filterSection input[type="text"]:focus,
+.filterSection input[type="number"]:focus,
+.filterSection select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+}
+
+.multiSelect {
+    width: 100%;
+    padding: 0.4rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    background: white;
+    color: #333;
+    min-height: 38px;
+}
+
+.multiSelect:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+}
+
+.multiSelect option {
+    padding: 0.4rem;
+    border-radius: 2px;
+}
+
+.multiSelect option:checked {
+    background: #007bff linear-gradient(0deg, #007bff 0%, #007bff 100%);
+    color: white;
+}
+
+.disciplineGrid {
+    margin-top: 0.5rem;
+}
+
+.singleSelect {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    background: white;
+    color: #333;
+    cursor: pointer;
+}
+
+.singleSelect:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+}
+
+.disciplineGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+}
+
+.disciplineLabel {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.4rem;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: white;
+}
+
+.disciplineLabel:hover {
+    border-color: #007bff;
+    background: #f0f8ff;
+}
+
+.disciplineLabel input[type="checkbox"]:checked + .disciplineIcon {
+    color: #007bff;
+    font-weight: bold;
+}
+
+.disciplineLabel input[type="checkbox"] {
+    display: none;
+}
+
+.disciplineIcon {
+    font-size: 0.7rem;
+    text-align: center;
+    font-family: monospace;
+    color: #007bff;
+    font-weight: 600;
+}
+
+.checkboxGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem;
+}
+
+.checkboxGrid label {
+    padding: 0.4rem 0.6rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: white;
+    transition: background 0.2s;
+    font-size: 0.85rem;
+}
+
+.checkboxGrid label:hover {
+    background: #f0f8ff;
+    border-color: #007bff;
+}
+
+.groupButtons {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+
+.groupButton {
+    padding: 0.4rem 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: white;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.2s;
+    color: #333;
+    min-width: 40px;
+}
+
+.groupButton:hover {
+    border-color: #007bff;
+    background: #f0f8ff;
+}
+
+.groupButton.active {
+    border-color: #007bff;
+    background: #007bff;
+    color: white;
+}
+
+.resetButton {
+    width: 100%;
+    padding: 0.7rem;
+    background: #dc3545;
+    color: white;
+    border: 1px solid #dc3545;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.resetButton:hover {
+    background: #c82333;
+    border-color: #c82333;
+    box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3);
+}
+
+/* Scrollbar styling */
+.filtersPanel::-webkit-scrollbar {
+    width: 8px;
+}
+
+.filtersPanel::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.filtersPanel::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.filtersPanel::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .checkboxGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .disciplineGrid {
+        grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    }
+
+    .groupButtons {
+        justify-content: center;
+    }
+}

@@ -16,20 +16,40 @@
 i {
   font-family: "Ankha VTES";
   font-style: normal;
-  color: #606060;
-  font-size: large;
+  font-size: 1.8rem;
 }
+
 c {
   font-family: "VTES Clans";
   font-style: normal;
-  color: #606060;
-  font-size: large;
+  font-size: 1.8rem;
 }
-.disciplineCrypt {
-  color: #808080;
+
+.krcg-icon {
   font-family: "Ankha VTES";
   font-style: normal;
-  font-size: large;
+}
+
+.krcg-clan {
+  font-family: "VTES Clans";
+  font-style: normal;
+}
+
+.disc-inactive {
+  cursor: pointer;
+  opacity: 0.5;
+  transition: transform 0.2s;
+}
+.disc-inactive:hover {
+  transform: scale(1.1);
+}
+.disc-active {
+  cursor: pointer;
+  opacity: 1;
+  transition: transform 0.2s;
+}
+.disc-active:hover {
+  transform: scale(1.1);
 }
 
 body {
