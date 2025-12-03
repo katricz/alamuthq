@@ -3,6 +3,7 @@ import Image from 'next/image'
 import getAllCards from '../api/getCards'
 import { nameToText } from '../../utils/stringHelpers'
 import { getCardName } from '../../utils/cardHelpers'
+import { getCardImageByName } from '../../utils/imageHelpers'
 
 
 export const getStaticPaths = async () => {
@@ -48,11 +49,12 @@ function Card(params) {
             </div>
             <div>
                 <Image
-                    src={'/img/card/' + params.card + '.jpg'}
+                    src={getCardImageByName(params.card)}
                     width={358}
                     height={500}
                     quality={75}
                     alt={params.card}
+                    unoptimized
                 />
             </div>
         </>

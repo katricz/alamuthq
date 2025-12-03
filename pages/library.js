@@ -13,6 +13,7 @@ import styles from '../styles/Alamuthq.module.css'
 import getAllCards from './api/getCards'
 import { nameToText } from '../utils/stringHelpers'
 import { getTypes } from '../utils/cardHelpers'
+import { getCardImageUrl } from '../utils/imageHelpers'
 
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
@@ -73,10 +74,11 @@ function Library({ libraryCards }) {
                             <ListItemAvatar>
                                 <Avatar>
                                     <Image
-                                        src={'/img/card/'.concat(nameToText(libraryCard.name)).concat(".jpg")}
+                                        src={getCardImageUrl(libraryCard)}
                                         fill
                                         alt={libraryCard.name}
                                         sizes="40px"
+                                        unoptimized
                                     />
                                 </Avatar>
                             </ListItemAvatar>

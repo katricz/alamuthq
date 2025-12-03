@@ -27,6 +27,7 @@ import getAllCards from './api/getCards'
 import { nameToText } from '../utils/stringHelpers'
 import { getCardName } from '../utils/cardHelpers'
 import { allDisciplines, infDisciplines, modalStyle } from '../utils/constants'
+import { getCardImageUrl } from '../utils/imageHelpers'
 
 export const getStaticProps = async () => {
     const allCards = await getAllCards()
@@ -114,10 +115,11 @@ function Crypt({ cryptCards }) {
                             <ListItemAvatar>
                                 <Avatar>
                                     <Image
-                                        src={'/img/card/'.concat(getCardName(cryptCard)).concat(".jpg")}
+                                        src={getCardImageUrl(cryptCard)}
                                         fill
                                         alt={cryptCard._name}
                                         sizes="40px"
+                                        unoptimized
                                     />
                                 </Avatar>
                             </ListItemAvatar>
