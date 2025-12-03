@@ -6,35 +6,42 @@ import ImageCarousel from '../../components/ImageCarousel'
 
 
 export const getStaticPaths = async () => {
-    const krcg = await getAllCards()
-
-    const krcgName = krcg.map(function (card) {
-        return getCardName(card)
-    })
-
-    const paths = krcgName.map(card => {
-        return {
-            params: { card: card }
-        }
-    })
+    // Generate only a small subset of paths at build time
+    // Other pages will be generated on-demand
     return {
-        paths,
-        fallback: false
+        paths: [],
+        fallback: 'blocking'
     }
 }
 
 
 export const getStaticProps = async (context) => {
     const cardName = context.params.card
-    const krcg = await getAllCards()
     
-    // Find the full card object by name
-    const cardData = krcg.find(card => getCardName(card) === cardName)
-    
-    return {
-        props: { 
-            cardName: cardName,
-            cardData: cardData || null
+    try {
+        const krcg = await getAllCards()
+        
+        // Find the full card object by name
+        const cardData = krcg.find(card => getCardName(card) === cardName)
+        
+        if (!cardData) {
+            return {
+                notFound: true
+            }
+        }
+        
+        return {
+            props: { 
+                cardName: cardName,
+                cardData: cardData
+            },
+            revalidate: 3600 // Revalidate every hour
+        }
+    } catch (error) {
+        console.error('Error fetching card data:', error)
+        // Return notFound to avoid crashing the build
+        return {
+            notFound: true
         }
     }
 }

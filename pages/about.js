@@ -1,11 +1,11 @@
 import Menu from '../components/Menu';
 import axios from 'axios';
-import { Jumbotron, Container } from 'reactstrap';
+import { Container } from 'reactstrap';
 
 const Sobre = (data) => (
     <div>
         <Menu />
-        <Jumbotron fluid className="head-sobre">
+        <div className="head-sobre">
             <style>{`.head-sobre{
                     padding-top: 80px;
                     padding-bottom: 80px;
@@ -18,9 +18,9 @@ const Sobre = (data) => (
                     <h1 className='display-4'>Sobre a Empresa</h1>
                 </div>
             </Container>
-        </Jumbotron>
+        </div>
 
-        <Jumbotron fluid className="sobre">
+        <div className="sobre">
             <style>{`.sobre{
                 padding-top: 80px;
                 padding-bottom: 80px;
@@ -50,7 +50,7 @@ const Sobre = (data) => (
 
                 </div>
             </Container>
-        </Jumbotron>
+        </div>
 
     </div>
 );
